@@ -1,0 +1,45 @@
+body {background-color: black}
+
+a {color: white;text-decoration:none;}
+h2 {color: #a31545;font-size: 15px;text-align: center;}
+p {margin: 0 0 0px;font-family: inherit;}
+.liveresult{text-align:center;padding:10px 10px 30px 10px;}
+.sattaname{color: #00fff9;font-size: 30px;font-weight: 700;}
+.sattaresult{color: #CEF6F5;font-size: 30px;font-weight: 700;margin-top: 3px}
+.sattaresult font {background: white;color: red;line-height: 58px;border-radius: 60px;padding: 13px;}
+.content{background-color: lightyellow; font-weight: bold; border-width: 3px; border-color:red; border-style: outset; padding: 9px; border-radius: 10px; text-align: center;}
+.content p{color:#000;text-align:justify;font-size:15px;}
+.content h3{color:#000;font-size:20px;margin:8px;font-weight:bold}
+.content a{color:red;text-decoration:none;}
+.footer{background-color: #5f0707;padding: 5px;border: 2px solid #FFF;text-align: center;border-radius: 10px 10px 0px 0px;}
+.footer p{font-size:20px;color:#FFF;margin:0px;}
+.footer a{color:yellow;font-weight:bold;text-decoration:none;font-size:15px;}
+.button5 {background-color: black;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;width: 50px;height: 50px;}
+.nav_tbl{width:100%;}
+.nav_tbl td{background-color:#000;text-align:center;padding:8px}
+.nav_tbl a{color:#FFF;text-decoration:none;font-weight: bold;}
+.king_scroll{font-size:15px; color:yellow;font-weight:bold}
+.enter1{background-color: lightyellow;text-align: center;font-size: 23px;border-radius: 25px;}
+.enter1 h1{margin-top: 4px; margin-bottom: 5px; font-size:15px; color:#0f0f54; font-weight:bold}
+.enter1 a{font-size:21px;color:red;font-weight:bold} 
+
+.tab { width:100% }
+.top .tab td,
+ th { color:#FFF}
+ td { border:1px solid #000;}
+.tab td { text-align:center; font-size:15px; padding: 2px; color:white }
+.tabb { background-color:#3e2964; font-weight:700 }
+.tabb a { line-height:36px; font-size: medium; }
+.td0 { background-color:#fff; padding-top:2px; padding-bottom:2px; font-weight:bold }
+.td1 { background:#72080f }
+.tr0 { color:#fff; background-color: red }
+.tr1 { background-color:#336666; }
+.tr2 { background-color:#FFF; color:#000; border: 1px solid #000;}
+.tr2bold { background-color:#53359a;font-size: 16px; }
+.tr3 { background-color:#9e2e8a }
+.result {font-size:13px; color:red;font-weight:bold}
+.cht_link{background-color: #FFF; border-style: double; border-color: #990033; text-align:center; padding: 5px 0px 5px 0px; }
+.cht_link a{color:red;font-size:15px;text-decoration:none;font-weight:bold}
+.ONLINE{padding:3px;border:1px solid yellow;}
+.bottom_ad{width:97%;background-color:#ffebcd;text-align:center;}
+.fon{color:red;text-decoration:none;font-weight:bold}

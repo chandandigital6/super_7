@@ -1,0 +1,33 @@
+.ShinyButton_shadow__btn__ZfTiW {
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 7px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: .5s;
+    transition-property: box-shadow;
+    background: #00478a;
+    box-shadow: 0 0 25px #008cff
+}
+
+.ShinyButton_shadow__btn__ZfTiW:hover {
+    box-shadow: 0 0 5px #008cff, 0 0 25px #008cff, 0 0 50px #008cff, 0 0 100px #008cff
+}
+
+@media (max-width:768px) {
+    .ShinyButton_shadow__btn__ZfTiW {
+        padding: 12px 2px;
+        border: none;
+        font-size: 9px;
+        color: #fff;
+        border-radius: 7px;
+        letter-spacing: 4px;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: .5s;
+        transition-property: box-shadow
+    }
+}
