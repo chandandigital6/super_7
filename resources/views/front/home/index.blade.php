@@ -10,6 +10,11 @@
     </div>
 </section>
 
+{{-- game list 4 and uske result --}}
+
+{{-- @include('front.home.relutshow') --}}
+
+
 <section class="row">
     <div class="flex items-center justify-around space-x-4 bg-yellow-400">
         <p class="w-full p-3 font-bold text-white bg-purple-800">GAME LIST</p>
