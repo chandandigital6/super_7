@@ -5,28 +5,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
 
-    <title>Today A7 Satta King Result – March 2026 Live Chart</title>
+   @php
+    $siteName = 'super-7-satta';
 
-    <meta name="description" content="Get live Super A7 Satta King result today 2026 at Super 7 Satta. Fast and accurate result updates.">
+    $metaTitle = $seo->meta_title ?? 'Today A7 Satta King Result – March 2026 Live Chart';
 
-    <meta name="keywords" content="super A7 satta, super A7 satta king, 7 satta king, a7 satta, a7 satta king, a7 satta result">
+    $metaDescription = $seo->meta_description
+        ?? 'Get live Super A7 Satta King result today 2026 at Super 7 Satta. Fast and accurate result updates.';
 
-    <meta name="robots" content="index, follow">
+    $metaKeywords = $seo->meta_keywords
+        ?? 'super A7 satta, super A7 satta king, 7 satta king, a7 satta, a7 satta king, a7 satta result';
 
-    <link rel="canonical" href="https://super-7-satta.com">
+    $canonicalUrl = $seo->canonical_url ?? url()->current();
 
-    <meta property="og:title" content="Play Super 7 Satta – Your Ultimate Destination">
-    <meta property="og:description" content="Check Super 7 Satta result, chart and live number updates.">
-    <meta property="og:site_name" content="super-7-satta">
-    <meta property="og:locale" content="en_IN">
-    <meta property="og:url" content="https://super-7-satta.com">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('Logo(2).png') }}">
+    $ogTitle = $seo->og_title ?? $metaTitle;
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Play Super 7 Satta">
-    <meta name="twitter:description" content="Check Super 7 Satta result and chart updates.">
-    <meta name="twitter:image" content="{{ asset('Logo(2).png') }}">
+    $ogDescription = $seo->og_description ?? $metaDescription;
+
+    $ogImage = !empty($seo->og_image)
+        ? asset($seo->og_image)
+        : asset('Logo(2).png');
+@endphp
+
+<title>{{ $metaTitle }}</title>
+
+<meta name="description" content="{{ $metaDescription }}">
+<meta name="keywords" content="{{ $metaKeywords }}">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="{{ $canonicalUrl }}">
+
+<meta property="og:title" content="{{ $ogTitle }}">
+<meta property="og:description" content="{{ $ogDescription }}">
+<meta property="og:site_name" content="{{ $siteName }}">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="{{ $canonicalUrl }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ $ogImage }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $ogTitle }}">
+<meta name="twitter:description" content="{{ $ogDescription }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('j/favicon.ico') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('j/apple-touch-icon.png') }}">

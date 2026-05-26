@@ -1,4 +1,8 @@
-@extends('front.layouts.app')
+@extends('front.layouts.app'
+    ,[
+        'seo' => $seo ?? null
+    ]
+)
 
 @section('content')
     @include('front.terms-conditions.content')
