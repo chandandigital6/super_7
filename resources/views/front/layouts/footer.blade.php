@@ -31,7 +31,7 @@
     z-index: 999999999999;" href="https://wa.me/919896916793"> <i class="fa fa-arrow-down blink"></i><br> PLAY Now
     </a>
     <a href="https://api.whatsapp.com/send/?phone=919896916793&text&type=phone_number&app_absent=0" target="_blank" style="position:fixed; bottom:70px;right:-4px;z-index:9;">
-       <img src="public/wapp.png" alt="WhatsApp Icon" style="height: 80px;width: 80px;margin-right: 10px;">
+       <img src="{{ asset('wapp.png') }}" alt="WhatsApp Icon" style="height: 80px;width: 80px;margin-right: 10px;">
     </a>
     <hr class=" border-gray-200 sm:mx-auto lg:my-8" />
     <p class="text-sm text-center text-red-400 ">This website does not promote, support, or encourage any kind of gambling, betting, or Satta activities. All content available on this website is purely for entertainment and informational purposes only. Satta/Gambling may be illegal in your region. Users are advised to check their local laws before accessing any such content. We are not responsible for any financial loss or legal consequences.
