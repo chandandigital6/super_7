@@ -1,23 +1,22 @@
-@extends('front.layouts.app',[
-    'seo' => $seo ?? null
+@extends('front.layouts.app', [
+    'seo' => $seo ?? null,
 ])
 
 @section('content')
+    <section class="bg-white">
+        <div class="text-center py-4">
+            <h2 class="text-2xl font-bold uppercase">
+                Super A7 Satta King Result Today – Updated Live Instantly
+            </h2>
+        </div>
+    </section>
 
-<section class="bg-white">
-    <div class="text-center py-4">
-        <h2 class="text-2xl font-bold uppercase">
-            Super A7 Satta King Result Today – Updated Live Instantly
-        </h2>
-    </div>
-</section>
+    {{-- game list 4 and uske result --}}
 
-{{-- game list 4 and uske result --}}
-
-{{-- @include('front.home.relutshow') --}}
+    {{-- @include('front.home.relutshow') --}}
 
 
-<section class="row">
+   <section class="row">
     <div class="flex items-center justify-around space-x-4 bg-yellow-400">
         <p class="w-full p-3 font-bold text-white bg-purple-800">GAME LIST</p>
 
@@ -44,27 +43,35 @@
                                 {{ $game->result_time }}
                             </p>
 
-                           <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
-    View Chart
-</a>
+                            <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
+                                View Chart
+                            </a>
                         </div>
                     </div>
 
                     <div class="flex items-center justify-around w-[75%]">
                         <p class="text-2xl font-medium tracking-wider">
-                            @if(!empty($game->yesterdayResult->result))
-                                {{ str_pad($game->yesterdayResult->result, 2, '0', STR_PAD_LEFT) }}
+                            @if (!empty($game->yesterdayResult->result))
+                                {{ is_numeric($game->yesterdayResult->result) && $game->yesterdayResult->result <= 9
+                                    ? str_pad($game->yesterdayResult->result, 2, '0', STR_PAD_LEFT)
+                                    : $game->yesterdayResult->result }}
                             @else
                                 XX
                             @endif
                         </p>
 
                         <p class="text-2xl font-medium tracking-wider">
-                            @if(!empty($game->todayResult->result) && $game->todayResult->status === 'published')
-                                {{ str_pad($game->todayResult->result, 2, '0', STR_PAD_LEFT) }}
+                            @if (
+                                !empty($game->todayResult->result)
+                                && in_array($game->todayResult->status ?? '', ['declared', 'published'])
+                            )
+                                {{ is_numeric($game->todayResult->result) && $game->todayResult->result <= 9
+                                    ? str_pad($game->todayResult->result, 2, '0', STR_PAD_LEFT)
+                                    : $game->todayResult->result }}
                             @else
                                 <strong class="waitimg">
-                                    <img class="lazy" alt="waiting" src="{{ asset('tamplate/admin/upimages/d.gif') }}">
+                                    <img class="lazy" alt="waiting"
+                                        src="{{ asset('tamplate/admin/upimages/d.gif') }}">
                                 </strong>
                             @endif
                         </p>
@@ -78,101 +85,111 @@
     </div>
 </section>
 
-<div class="py-8 mx-auto mt-4 bg-gray-600">
-    <h2 class="pb-4 text-2xl font-bold text-center text-white">
-        Check All Game Year Chart
-    </h2>
 
-    <form method="get" action="#">
-        <div class="flex items-center justify-center mx-auto rounded">
-            <div class="flex mx-2">
-                <select id="gameSelect" class="py-2 text-sm uppercase bg-white rounded-md outline-none md:py-3 md:text-base lg:px-3">
-                    @foreach($chartGames as $game)
-                        <option value="{{ $game->slug }}">
-                            {{ $game->name }}
-                        </option>
-                    @endforeach
-                </select>
 
-                <select id="yearSelect" class="px-2 py-2 mx-0 ml-1 text-sm bg-white rounded-md outline-none md:py-3 md:text-base lg:mx-3">
-                    <option value="{{ now('Asia/Kolkata')->year }}">{{ now('Asia/Kolkata')->year }}</option>
-                    <option value="{{ now('Asia/Kolkata')->subYear()->year }}">{{ now('Asia/Kolkata')->subYear()->year }}</option>
-                    <option value="{{ now('Asia/Kolkata')->subYears(2)->year }}">{{ now('Asia/Kolkata')->subYears(2)->year }}</option>
-                </select>
+
+
+
+    <div class="py-8 mx-auto mt-4 bg-gray-600">
+        <h2 class="pb-4 text-2xl font-bold text-center text-white">
+            Check All Game Year Chart
+        </h2>
+
+        <form method="get" action="#">
+            <div class="flex items-center justify-center mx-auto rounded">
+                <div class="flex mx-2">
+                    <select id="gameSelect"
+                        class="py-2 text-sm uppercase bg-white rounded-md outline-none md:py-3 md:text-base lg:px-3">
+                        @foreach ($chartGames as $game)
+                            <option value="{{ $game->slug }}">
+                                {{ $game->name }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <select id="yearSelect"
+                        class="px-2 py-2 mx-0 ml-1 text-sm bg-white rounded-md outline-none md:py-3 md:text-base lg:mx-3">
+                        <option value="{{ now('Asia/Kolkata')->year }}">{{ now('Asia/Kolkata')->year }}</option>
+                        <option value="{{ now('Asia/Kolkata')->subYear()->year }}">
+                            {{ now('Asia/Kolkata')->subYear()->year }}</option>
+                        <option value="{{ now('Asia/Kolkata')->subYears(2)->year }}">
+                            {{ now('Asia/Kolkata')->subYears(2)->year }}</option>
+                    </select>
+                </div>
+
+                <button type="button" onclick="openYearChart()" class="ShinyButton_shadow__btn__ZfTiW">
+                    Check Chart
+                </button>
             </div>
+        </form>
+    </div>
 
-            <button type="button" onclick="openYearChart()" class="ShinyButton_shadow__btn__ZfTiW">
-                Check Chart
-            </button>
-        </div>
-    </form>
-</div>
-
-<div class="w-full overflow-x-auto bg-white shadow-md mt-4">
-    <table class="w-full overflow-x-auto text-sm text-left text-gray-500 border-separate table-auto whitespace-nowrap lg:table-fixed">
-        <thead>
-            <tr>
-                <td class="py-3 bg-[#0aa485] text-center text-[12px] lg:text-base font-bold text-white rounded-lg">
-                    Date
-                </td>
-
-                @foreach($chartGames as $game)
-                    <td class="py-3 bg-[#0aa485] text-center text-[12px] lg:text-base font-bold text-white rounded-lg">
-                        {{ $game->name }}
-                    </td>
-                @endforeach
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach($dates as $date)
-                @php
-                    $dateKey = $date->format('Y-m-d');
-                    $dayResults = $monthlyResults->get($dateKey, collect())->keyBy('game_slug');
-                @endphp
-
+    <div class="w-full overflow-x-auto bg-white shadow-md mt-4">
+        <table
+            class="w-full overflow-x-auto text-sm text-left text-gray-500 border-separate table-auto whitespace-nowrap lg:table-fixed">
+            <thead>
                 <tr>
-                    <td class="text-white lg:px-6 px-1 lg:py-4 py-3 bg-[#2d4b58] text-sm font-semibold rounded-lg">
-                        {{ $date->format('d-m-Y') }}
+                    <td class="py-3 bg-[#0aa485] text-center text-[12px] lg:text-base font-bold text-white rounded-lg">
+                        Date
                     </td>
 
-                    @foreach($chartGames as $game)
-                        @php
-                            $result = $dayResults->get($game->slug);
-                        @endphp
-
-                        <td class="text-white lg:px-6 px-1 lg:py-4 py-3 bg-[#2d4b58] text-sm font-semibold rounded-lg">
-                            @if(!empty($result?->result))
-                                {{ str_pad($result->result, 2, '0', STR_PAD_LEFT) }}
-                            @else
-                                -
-                            @endif
+                    @foreach ($chartGames as $game)
+                        <td class="py-3 bg-[#0aa485] text-center text-[12px] lg:text-base font-bold text-white rounded-lg">
+                            {{ $game->name }}
                         </td>
                     @endforeach
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+            </thead>
 
-<section class="bg-white md:py-4 homeContent">
-    <h2 style="padding:1rem 1.5rem;background:#406e83;text-align:center;font-size:1.2rem;color:#fff;">
-        Super A7 Satta – India's Most Trusted A7 Satta King Result Platform
-    </h2>
+            <tbody>
+                @foreach ($dates as $date)
+                    @php
+                        $dateKey = $date->format('Y-m-d');
+                        $dayResults = $monthlyResults->get($dateKey, collect())->keyBy('game_slug');
+                    @endphp
 
-    <div style="padding:10px;">
-        Welcome to Super 7 Satta — your daily source for A7 Satta results, charts, and live number updates.
+                    <tr>
+                        <td class="text-white lg:px-6 px-1 lg:py-4 py-3 bg-[#2d4b58] text-sm font-semibold rounded-lg">
+                            {{ $date->format('d-m-Y') }}
+                        </td>
+
+                        @foreach ($chartGames as $game)
+                            @php
+                                $result = $dayResults->get($game->slug);
+                            @endphp
+
+                            <td class="text-white lg:px-6 px-1 lg:py-4 py-3 bg-[#2d4b58] text-sm font-semibold rounded-lg">
+                                @if (!empty($result?->result))
+                                    {{ str_pad($result->result, 2, '0', STR_PAD_LEFT) }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+                        @endforeach
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-</section>
 
-<script>
-    function openYearChart() {
-        let slug = document.getElementById('gameSelect').value;
-        let year = document.getElementById('yearSelect').value;
+    <section class="bg-white md:py-4 homeContent">
+        <h2 style="padding:1rem 1.5rem;background:#406e83;text-align:center;font-size:1.2rem;color:#fff;">
+            Super A7 Satta – India's Most Trusted A7 Satta King Result Platform
+        </h2>
 
-        window.location.href = "{{ url('/record') }}/" + slug + "/" + year;
-    }
-</script>
+        <div style="padding:10px;">
+            Welcome to Super 7 Satta — your daily source for A7 Satta results, charts, and live number updates.
+        </div>
+    </section>
+
+    <script>
+        function openYearChart() {
+            let slug = document.getElementById('gameSelect').value;
+            let year = document.getElementById('yearSelect').value;
+
+            window.location.href = "{{ url('/record') }}/" + slug + "/" + year;
+        }
+    </script>
 
 
 
@@ -221,8 +238,8 @@
             • Wide Coverage — 25+ markets updated daily, all in one table<br>
             • No Login Needed — Results and charts are fully accessible without signing up<br>
             • Simple Format — Easy for both new visitors and long-time followers<br>
-            For players who also track the <a href="https://super-7-satta.com/records/shri-ganesh"
-                style="color:blue;">Shri Ganesh Result Chart</a>, all records are available here without needing to switch
+            For players who also track the <a href="https://super-7-satta.com/records/shri-ganesh" style="color:blue;">Shri
+                Ganesh Result Chart</a>, all records are available here without needing to switch
             between different websites.
 
         </div>
