@@ -11,79 +11,166 @@
         </div>
     </section>
 
-    {{-- game list 4 and uske result --}}
-
-    {{-- @include('front.home.relutshow') --}}
 
 
-   <section class="row">
-    <div class="flex items-center justify-around space-x-4 bg-yellow-400">
-        <p class="w-full p-3 font-bold text-white bg-purple-800">GAME LIST</p>
+    <div class="addb"
+    style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
 
-        <div class="flex items-center justify-around bg-yellow-400 w-[75%]">
-            <p class="text-lg font-semibold">कल</p>
-            <p class="text-lg font-semibold">आज</p>
+    <h2 style="margin:0; font-size:22px; font-weight:bold; text-align:center;">
+        नमस्कार साथियों
+    </h2>
+
+    <p style="margin-top:10px; font-size:20px; font-weight:600; line-height:1.6; text-align:center;">
+        सीधा कंपनी खाईवाल के पास गेम प्ले करे<br>
+        बिंदास 1001% पेमेंट की गारंटी के साथ<br>
+        आपका अपना भाई
+    </p>
+
+    <h2 style="margin-top:25px; font-size:28px; font-weight:bold; text-align:center;">
+        S.K Bhai
+    </h2>
+
+    <img src="{{ asset('Wp.png') }}" alt="S.K Bhai"
+        style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
+
+</div>
+
+
+    <div class="col-md-12 text-center" style="background-color:white;">
+        <div class="ads" style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
+            <h4 class="text-center text-black" style="font-weight:bolder;">
+                व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
+            </h4>
+
+            <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T">
+                <img src="{{ asset('Join-WhatsApp.png') }}" width="160px"
+                    style="display:block; margin-bottom:10px; margin-left:auto; margin-right:auto;">
+            </a>
         </div>
     </div>
 
-    <div class="w-full px-0 text-center">
-        <div class="grid grid-cols-1 bg-white lg:grid-cols-3 md:grid-cols-2">
 
-            @forelse($games as $game)
-                <div class="flex items-center justify-around space-x-4 border border-gray-900">
-                    <div class="w-full p-3">
-                        <p class="pb-2 text-xl font-bold tracking-wide text-gray-900 uppercase text-start hover:underline">
-                            <a href="{{ route('game.record', $game->slug) }}">
-                                {{ $game->name }}
-                            </a>
-                        </p>
 
-                        <div class="flex items-center justify-between">
-                            <p class="text-sm font-semibold text-red-900">
-                                {{ $game->result_time }}
+   <div class="drag">
+    <div
+        style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+
+        <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
+            सीधे सट्टा कंपनी का No 1 खाईवाल
+        </div>
+
+        <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
+            ☆☆ ABHISHEK Bhai KHAIWAL☆☆
+        </div>
+
+        <div style="font-size:23px; font-weight:700; color:#111; line-height:1.35; text-align:center;">
+            🎯 पालिका बाजार..1:20pm<br>
+            🎯 प्रयागराज........2:00pm<br>
+            🎯 दिल्लीबाजार ...3:00pm<br>
+            🎯 दिल्ली दरबार....3:30pm<br>
+            🎯 श्री गणेश........4:30 Pm<br>
+            🎯 रूप नगर..........5:10pm<br>
+            🎯 फरीदाबाद.......5:50 pm<br>
+            🎯 फतेहपुर..........7:10 pm<br>
+            🎯 गाजियाबाद......8:50 pm<br>
+            🎯 नोएडानाईट.....10:00 pm<br>
+            🎯 गली...............11:15pm<br>
+            🎯 दिसावर ..........3:00 am
+        </div>
+
+        <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
+            जोड़ी रेट<br>
+            जोड़ी रेट 10-------960<br>
+            हरफ रेट 100-----960
+        </div>
+
+        <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
+            ☆☆ ABHISHEK Bhai KHAIWAL ☆☆
+        </div>
+
+        <div style="font-size:22px; font-weight:800; color:#9b59b6; text-align:center;">
+            Game Play करने के लिए नीचे लिंक पर क्लिक करे
+        </div>
+
+        <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK Bhai"
+            style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
+
+        <div style="font-size:22px; font-weight:800; color:#111; margin-top:6px; text-align:center;">
+            Click to chat
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    <section class="row">
+        <div class="flex items-center justify-around space-x-4 bg-yellow-400">
+            <p class="w-full p-3 font-bold text-white bg-purple-800">GAME LIST</p>
+
+            <div class="flex items-center justify-around bg-yellow-400 w-[75%]">
+                <p class="text-lg font-semibold">कल</p>
+                <p class="text-lg font-semibold">आज</p>
+            </div>
+        </div>
+
+        <div class="w-full px-0 text-center">
+            <div class="grid grid-cols-1 bg-white lg:grid-cols-3 md:grid-cols-2">
+
+                @forelse($games as $game)
+                    <div class="flex items-center justify-around space-x-4 border border-gray-900">
+                        <div class="w-full p-3">
+                            <p
+                                class="pb-2 text-xl font-bold tracking-wide text-gray-900 uppercase text-start hover:underline">
+                                <a href="{{ route('game.record', $game->slug) }}">
+                                    {{ $game->name }}
+                                </a>
                             </p>
 
-                            <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
-                                View Chart
-                            </a>
+                            <div class="flex items-center justify-between">
+                                <p class="text-sm font-semibold text-red-900">
+                                    {{ $game->result_time }}
+                                </p>
+
+                                <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
+                                    View Chart
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-around w-[75%]">
+                            <p class="text-2xl font-medium tracking-wider">
+                                @if (!empty($game->yesterdayResult->result))
+                                    {{ is_numeric($game->yesterdayResult->result) && $game->yesterdayResult->result <= 9
+                                        ? str_pad($game->yesterdayResult->result, 2, '0', STR_PAD_LEFT)
+                                        : $game->yesterdayResult->result }}
+                                @else
+                                    XX
+                                @endif
+                            </p>
+
+                            <p class="text-2xl font-medium tracking-wider">
+                                @if (!empty($game->todayResult->result) && in_array($game->todayResult->status ?? '', ['declared', 'published']))
+                                    {{ is_numeric($game->todayResult->result) && $game->todayResult->result <= 9
+                                        ? str_pad($game->todayResult->result, 2, '0', STR_PAD_LEFT)
+                                        : $game->todayResult->result }}
+                                @else
+                                    <strong class="waitimg">
+                                        <img class="lazy" alt="waiting"
+                                            src="{{ asset('tamplate/admin/upimages/d.gif') }}">
+                                    </strong>
+                                @endif
+                            </p>
                         </div>
                     </div>
+                @empty
+                    <div class="p-4 text-center">No result found</div>
+                @endforelse
 
-                    <div class="flex items-center justify-around w-[75%]">
-                        <p class="text-2xl font-medium tracking-wider">
-                            @if (!empty($game->yesterdayResult->result))
-                                {{ is_numeric($game->yesterdayResult->result) && $game->yesterdayResult->result <= 9
-                                    ? str_pad($game->yesterdayResult->result, 2, '0', STR_PAD_LEFT)
-                                    : $game->yesterdayResult->result }}
-                            @else
-                                XX
-                            @endif
-                        </p>
-
-                        <p class="text-2xl font-medium tracking-wider">
-                            @if (
-                                !empty($game->todayResult->result)
-                                && in_array($game->todayResult->status ?? '', ['declared', 'published'])
-                            )
-                                {{ is_numeric($game->todayResult->result) && $game->todayResult->result <= 9
-                                    ? str_pad($game->todayResult->result, 2, '0', STR_PAD_LEFT)
-                                    : $game->todayResult->result }}
-                            @else
-                                <strong class="waitimg">
-                                    <img class="lazy" alt="waiting"
-                                        src="{{ asset('tamplate/admin/upimages/d.gif') }}">
-                                </strong>
-                            @endif
-                        </p>
-                    </div>
-                </div>
-            @empty
-                <div class="p-4 text-center">No result found</div>
-            @endforelse
-
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
