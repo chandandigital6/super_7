@@ -56,6 +56,9 @@
     <link rel="stylesheet" href="{{ asset('next/static/css/1aae1bcfa6b95e00.css') }}">
 
 
+
+   
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QEDR9PH55"></script>
 <script>
@@ -67,6 +70,12 @@
   
   
 </script>
+
+
+ @if(!empty($seo?->schema_markup))
+    {!! $seo->schema_markup !!}
+@endif
+
 </head>
 
 <body class="w-full min-h-screen font-Roboto">
