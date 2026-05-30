@@ -6,6 +6,7 @@ use App\Models\SeoPage;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use App\Models\Advertisement;
 
 class FrontController extends Controller
 {
@@ -115,12 +116,15 @@ class FrontController extends Controller
     }
 
    $seo = SeoPage::where('page_key', 'home')->first();
+   $advertisements = Advertisement::where('is_active', true)->get();
+
     return view('front.home.index', compact(
         'games',
         'chartGames',
         'dates',
         'monthlyResults',
         'seo',
+        'advertisements',
     ));
 }
 
@@ -236,6 +240,7 @@ public function yearRecord(string $slug, int $year)
     }
 
      $seo = SeoPage::where('page_key', 'game-year-record')->first();
+     
 
     return view('front.game.year_record', compact('game', 'results', 'year', 'seo'));
 }
