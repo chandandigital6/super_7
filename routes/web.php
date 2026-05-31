@@ -15,6 +15,15 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\SeoPageController;
 
 
+
+
+Route::get('/sitemap.xml', function () {
+    return response()
+        ->view('sitemap')
+        ->header('Content-Type', 'application/xml');
+});
+
+
 Route::get('/chart', [FrontController::class, 'chart'])->name('chart');
 Route::get('/record/{slug}', [FrontController::class, 'gameRecord'])->name('game.record');
 Route::get('/record/{slug}/{year}', [FrontController::class, 'yearRecord'])->name('game.yearRecord');
@@ -24,11 +33,7 @@ Route::get('/privacy-policy', [FrontController::class, 'privacyPolicy'])->name('
 Route::get('/terms-conditions', [FrontController::class, 'termsConditions'])->name('terms-conditions');
 
 
-Route::get('/sitemap.xml', function () {
-    return response()
-        ->view('sitemap')
-        ->header('Content-Type', 'application/xml');
-});
+
 
 Route::prefix('{current_team}')
     ->middleware(['auth', 'verified', EnsureTeamMembership::class])
