@@ -15,214 +15,205 @@
     {{-- top --}}
 
     @php
-    $topAdvertisement = $advertisements->where('position', 'top')->first();
-@endphp
+        $topAdvertisement = $advertisements->where('position', 'top')->first();
+    @endphp
 
-@if($topAdvertisement)
-    <div class="addb"
-         style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    @if ($topAdvertisement)
+        <div class="addb"
+            style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
 
-       
 
-        @if(!empty($topAdvertisement->content))
-            <div class="addb-content"
-     style="margin-top:0; font-size:20px; font-weight:600; line-height:1.4; text-align:center;">
-    {!! $topAdvertisement->content !!}
-</div>
-        @endif
 
-        @if(!empty($topAdvertisement->image))
-            @if(!empty($topAdvertisement->link))
-                <a href="{{ $topAdvertisement->link }}" target="_blank">
-                    <img src="{{ asset('storage/' . $topAdvertisement->image) }}"
-                         alt="{{ $topAdvertisement->title }}"
-                         style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
-                </a>
-            @else
-               <img src="{{ asset('storage/' . $topAdvertisement->image) }}"
-     alt="{{ $topAdvertisement->title }}"
-     style="display:block; margin:3px auto 0 auto; max-width:120px; height:auto;">
+            @if (!empty($topAdvertisement->content))
+                <div class="addb-content"
+                    style="margin-top:0; font-size:20px; font-weight:600; line-height:1.4; text-align:center;">
+                    {!! $topAdvertisement->content !!}
+                </div>
             @endif
-        @endif
 
-    </div>
-@else
-    <div class="addb"
-         style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            @if (!empty($topAdvertisement->image))
+                @if (!empty($topAdvertisement->link))
+                    <a href="{{ $topAdvertisement->link }}" target="_blank">
+                        <img src="{{ asset('storage/' . $topAdvertisement->image) }}" alt="{{ $topAdvertisement->title }}"
+                            style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
+                    </a>
+                @else
+                    <img src="{{ asset('storage/' . $topAdvertisement->image) }}" alt="{{ $topAdvertisement->title }}"
+                        style="display:block; margin:3px auto 0 auto; max-width:120px; height:auto;">
+                @endif
+            @endif
 
-        <h2 style="margin:0; font-size:22px; font-weight:bold; text-align:center;">
-            नमस्कार साथियों
-        </h2>
-
-        <p style="margin-top:10px; font-size:20px; font-weight:600; line-height:1.6; text-align:center;">
-            सीधा कंपनी खाईवाल के पास गेम प्ले करे<br>
-            बिंदास 1001% पेमेंट की गारंटी के साथ<br>
-            आपका अपना भाई
-        </p>
-
-        <h2 style="margin-top:25px; font-size:28px; font-weight:bold; text-align:center;">
-            S.K Bhai
-        </h2>
-
-        <img src="{{ asset('Wp.png') }}" alt="S.K Bhai"
-             style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
-    </div>
-@endif
-
-
-{{-- end top --}}
-
-
-
- {{-- middle --}}
-
-
- @php
-    $middleAdvertisement = $advertisements->where('position', 'middle')->first();
-@endphp
-
-@if($middleAdvertisement)
-
-<div class="col-md-12 text-center" style="background-color:white;">
-    <div class="ads"
-         style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
-
-        <div class="addb-content">
-            {!! $middleAdvertisement->content !!}
         </div>
+    @else
+        <div class="addb"
+            style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
 
-        @if($middleAdvertisement->image)
-            @if($middleAdvertisement->link)
-                <a href="{{ $middleAdvertisement->link }}" target="_blank">
-                    <img src="{{ asset('storage/'.$middleAdvertisement->image) }}"
-                         alt="{{ $middleAdvertisement->title }}"
-                         width="160"
-                         style="display:block; margin:10px auto;">
-                </a>
-            @else
-                <img src="{{ asset('storage/'.$middleAdvertisement->image) }}"
-                     alt="{{ $middleAdvertisement->title }}"
-                     width="160"
-                     style="display:block; margin:10px auto;">
-            @endif
-        @endif
+            <h2 style="margin:0; font-size:22px; font-weight:bold; text-align:center;">
+                नमस्कार साथियों
+            </h2>
 
-    </div>
-</div>
+            <p style="margin-top:10px; font-size:20px; font-weight:600; line-height:1.6; text-align:center;">
+                सीधा कंपनी खाईवाल के पास गेम प्ले करे<br>
+                बिंदास 1001% पेमेंट की गारंटी के साथ<br>
+                आपका अपना भाई
+            </p>
 
-@else
+            <h2 style="margin-top:25px; font-size:28px; font-weight:bold; text-align:center;">
+                S.K Bhai
+            </h2>
 
-<div class="col-md-12 text-center" style="background-color:white;">
-    <div class="ads" style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
-
-        <h4 class="text-center text-black" style="font-weight:bolder;">
-            व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
-        </h4>
-
-        <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T">
-            <img src="{{ asset('Join-WhatsApp.png') }}"
-                 width="160"
-                 style="display:block; margin:10px auto;">
-        </a>
-
-    </div>
-</div>
-
-@endif
-
- {{-- end middle --}}
+            <img src="{{ asset('Wp.png') }}" alt="S.K Bhai"
+                style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
+        </div>
+    @endif
 
 
-   {{-- bottom --}}
+    {{-- end top --}}
 
 
-   @php
-    $bottomAdvertisement = $advertisements->where('position', 'bottom')->first();
-@endphp
 
-@if($bottomAdvertisement)
+    {{-- middle --}}
 
-<div class="drag">
-    <div style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
 
-        @if(!empty($bottomAdvertisement->content))
-            <div class="addb-content">
-                {!! $bottomAdvertisement->content !!}
+    @php
+        $middleAdvertisement = $advertisements->where('position', 'middle')->first();
+    @endphp
+
+    @if ($middleAdvertisement)
+
+        <div class="col-md-12 text-center" style="background-color:white;">
+            <div class="ads" style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
+
+                <div class="addb-content">
+                    {!! $middleAdvertisement->content !!}
+                </div>
+
+                @if ($middleAdvertisement->image)
+                    @if ($middleAdvertisement->link)
+                        <a href="{{ $middleAdvertisement->link }}" target="_blank">
+                            <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
+                                alt="{{ $middleAdvertisement->title }}" width="160"
+                                style="display:block; margin:10px auto;">
+                        </a>
+                    @else
+                        <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
+                            alt="{{ $middleAdvertisement->title }}" width="160"
+                            style="display:block; margin:10px auto;">
+                    @endif
+                @endif
+
             </div>
-        @endif
+        </div>
+    @else
+        <div class="col-md-12 text-center" style="background-color:white;">
+            <div class="ads" style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
 
-        @if(!empty($bottomAdvertisement->image))
-            @if(!empty($bottomAdvertisement->link))
-                <a href="{{ $bottomAdvertisement->link }}" target="_blank">
-                    <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
-                         alt="{{ $bottomAdvertisement->title }}"
-                         style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
+                <h4 class="text-center text-black" style="font-weight:bolder;">
+                    व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
+                </h4>
+
+                <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T">
+                    <img src="{{ asset('Join-WhatsApp.png') }}" width="160" style="display:block; margin:10px auto;">
                 </a>
-            @else
-                <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
-                     alt="{{ $bottomAdvertisement->title }}"
-                     style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
-            @endif
-        @endif
 
-    </div>
-</div>
-
-@else
-
-<div class="drag">
-    <div style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-
-        <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
-            सीधे सट्टा कंपनी का No 1 खाईवाल
+            </div>
         </div>
 
-        <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
-            ☆☆ ABHISHEK Bhai KHAIWAL☆☆
+    @endif
+
+    {{-- end middle --}}
+
+
+    {{-- bottom --}}
+
+
+    @php
+        $bottomAdvertisement = $advertisements->where('position', 'bottom')->first();
+    @endphp
+
+    @if ($bottomAdvertisement)
+
+        <div class="drag">
+            <div
+                style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+
+                @if (!empty($bottomAdvertisement->content))
+                    <div class="addb-content">
+                        {!! $bottomAdvertisement->content !!}
+                    </div>
+                @endif
+
+                @if (!empty($bottomAdvertisement->image))
+                    @if (!empty($bottomAdvertisement->link))
+                        <a href="{{ $bottomAdvertisement->link }}" target="_blank">
+                            <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
+                                alt="{{ $bottomAdvertisement->title }}"
+                                style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
+                        </a>
+                    @else
+                        <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
+                            alt="{{ $bottomAdvertisement->title }}"
+                            style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
+                    @endif
+                @endif
+
+            </div>
+        </div>
+    @else
+        <div class="drag">
+            <div
+                style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+
+                <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
+                    सीधे सट्टा कंपनी का No 1 खाईवाल
+                </div>
+
+                <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
+                    ☆☆ ABHISHEK Bhai KHAIWAL☆☆
+                </div>
+
+                <div style="font-size:23px; font-weight:700; color:#111; line-height:1.35; text-align:center;">
+                    🎯 पालिका बाजार..1:20pm<br>
+                    🎯 प्रयागराज........2:00pm<br>
+                    🎯 दिल्लीबाजार ...3:00pm<br>
+                    🎯 दिल्ली दरबार....3:30pm<br>
+                    🎯 श्री गणेश........4:30 Pm<br>
+                    🎯 रूप नगर..........5:10pm<br>
+                    🎯 फरीदाबाद.......5:50 pm<br>
+                    🎯 फतेहपुर..........7:10 pm<br>
+                    🎯 गाजियाबाद......8:50 pm<br>
+                    🎯 नोएडानाईट.....10:00 pm<br>
+                    🎯 गली...............11:15pm<br>
+                    🎯 दिसावर ..........3:00 am
+                </div>
+
+                <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
+                    जोड़ी रेट<br>
+                    जोड़ी रेट 10-------960<br>
+                    हरफ रेट 100-----960
+                </div>
+
+                <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
+                    ☆☆ ABHISHEK Bhai KHAIWAL ☆☆
+                </div>
+
+                <div style="font-size:22px; font-weight:800; color:#9b59b6; text-align:center;">
+                    Game Play करने के लिए नीचे लिंक पर क्लिक करे
+                </div>
+
+                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK Bhai"
+                    style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
+
+                <div style="font-size:22px; font-weight:800; color:#111; margin-top:6px; text-align:center;">
+                    Click to chat
+                </div>
+
+            </div>
         </div>
 
-        <div style="font-size:23px; font-weight:700; color:#111; line-height:1.35; text-align:center;">
-            🎯 पालिका बाजार..1:20pm<br>
-            🎯 प्रयागराज........2:00pm<br>
-            🎯 दिल्लीबाजार ...3:00pm<br>
-            🎯 दिल्ली दरबार....3:30pm<br>
-            🎯 श्री गणेश........4:30 Pm<br>
-            🎯 रूप नगर..........5:10pm<br>
-            🎯 फरीदाबाद.......5:50 pm<br>
-            🎯 फतेहपुर..........7:10 pm<br>
-            🎯 गाजियाबाद......8:50 pm<br>
-            🎯 नोएडानाईट.....10:00 pm<br>
-            🎯 गली...............11:15pm<br>
-            🎯 दिसावर ..........3:00 am
-        </div>
+    @endif
 
-        <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
-            जोड़ी रेट<br>
-            जोड़ी रेट 10-------960<br>
-            हरफ रेट 100-----960
-        </div>
-
-        <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
-            ☆☆ ABHISHEK Bhai KHAIWAL ☆☆
-        </div>
-
-        <div style="font-size:22px; font-weight:800; color:#9b59b6; text-align:center;">
-            Game Play करने के लिए नीचे लिंक पर क्लिक करे
-        </div>
-
-        <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK Bhai"
-             style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
-
-        <div style="font-size:22px; font-weight:800; color:#111; margin-top:6px; text-align:center;">
-            Click to chat
-        </div>
-
-    </div>
-</div>
-
-@endif
-
-   {{-- end bootom --}}
+    {{-- end bootom --}}
 
 
 
@@ -252,8 +243,8 @@
 
                             <div class="flex items-center justify-between">
                                 <p class="text-sm font-semibold text-red-900">
-                                    {{ $game->result_time }}
-                                </p>
+    {{ \Carbon\Carbon::parse($game->result_time)->format('h:i A') }}
+</p>
 
                                 <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
                                     View Chart
@@ -447,7 +438,8 @@
             • Wide Coverage — 25+ markets updated daily, all in one table<br>
             • No Login Needed — Results and charts are fully accessible without signing up<br>
             • Simple Format — Easy for both new visitors and long-time followers<br>
-            For players who also track the <a href="https://super-7-satta.com/records/shri-ganesh" style="color:blue;">Shri
+            For players who also track the <a href="https://super-7-satta.com/records/shri-ganesh"
+                style="color:blue;">Shri
                 Ganesh Result Chart</a>, all records are available here without needing to switch
             between different websites.
 
