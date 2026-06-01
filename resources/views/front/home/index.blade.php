@@ -218,7 +218,7 @@
 
 
 
-    <section class="row">
+    {{-- <section class="row">
         <div class="flex items-center justify-around space-x-4 bg-yellow-400">
             <p class="w-full p-3 font-bold text-white bg-purple-800">GAME LIST</p>
 
@@ -243,8 +243,8 @@
 
                             <div class="flex items-center justify-between">
                                 <p class="text-sm font-semibold text-red-900">
-    {{ \Carbon\Carbon::parse($game->result_time)->format('h:i A') }}
-</p>
+                                    {{ \Carbon\Carbon::parse($game->result_time)->format('h:i A') }}
+                                </p>
 
                                 <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
                                     View Chart
@@ -283,10 +283,94 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
+
+    {{-- Game List Section - 2 Parts --}}
+<section class="row">
+    @php
+        // $gameSections = $games->chunk(ceil($games->count() / 2));
+         $gameSections = $games->chunk(17);
+    @endphp
+
+    @foreach ($gameSections as $sectionIndex => $gameSection)
+        <div class="{{ $sectionIndex > 0 ? 'mt-8' : '' }}">
+
+            <div class="flex items-center justify-around space-x-4 bg-yellow-400">
+                <p class="w-full p-3 font-bold text-white bg-purple-800">
+                    GAME LIST PART {{ $sectionIndex + 1 }}
+                </p>
+
+                <div class="flex items-center justify-around bg-yellow-400 w-[75%]">
+                    <p class="text-lg font-semibold">कल</p>
+                    <p class="text-lg font-semibold">आज</p>
+                </div>
+            </div>
+
+            <div class="w-full px-0 text-center">
+                <div class="grid grid-cols-1 bg-white lg:grid-cols-3 md:grid-cols-2">
+
+                    @forelse($gameSection as $game)
+                        <div class="flex items-center justify-around space-x-4 border border-gray-900">
+                            <div class="w-full p-3">
+                                <p class="pb-2 text-xl font-bold tracking-wide text-gray-900 uppercase text-start hover:underline">
+                                    <a href="{{ route('game.record', $game->slug) }}">
+                                        {{ $game->name }}
+                                    </a>
+                                </p>
+
+                                <div class="flex items-center justify-between gap-2">
+                                    <p class="text-sm font-semibold text-red-900">
+                                        @if (!empty($game->result_time))
+                                            {{ \Carbon\Carbon::parse($game->result_time)->format('h:i A') }}
+                                        @endif
+                                    </p>
+
+                                    <a class="text-sm font-semibold text-blue-700 hover:underline"
+                                       href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
+                                        View Chart
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-around w-[75%]">
+                                <p class="text-2xl font-medium tracking-wider">
+                                    @if (!empty($game->yesterdayResult->result))
+                                        {{ is_numeric($game->yesterdayResult->result) && $game->yesterdayResult->result <= 9
+                                            ? str_pad($game->yesterdayResult->result, 2, '0', STR_PAD_LEFT)
+                                            : $game->yesterdayResult->result }}
+                                    @else
+                                        XX
+                                    @endif
+                                </p>
+
+                                <p class="text-2xl font-medium tracking-wider">
+                                    @if (!empty($game->todayResult->result) && in_array($game->todayResult->status ?? '', ['declared', 'published']))
+                                        {{ is_numeric($game->todayResult->result) && $game->todayResult->result <= 9
+                                            ? str_pad($game->todayResult->result, 2, '0', STR_PAD_LEFT)
+                                            : $game->todayResult->result }}
+                                    @else
+                                        <strong class="waitimg">
+                                            <img class="lazy"
+                                                 alt="waiting"
+                                                 src="{{ asset('tamplate/admin/upimages/d.gif') }}">
+                                        </strong>
+                                    @endif
+                                </p>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="p-4 text-center">No result found</div>
+                    @endforelse
+
+                </div>
+            </div>
+
+        </div>
+    @endforeach
+</section>
 
 
 
@@ -324,7 +408,7 @@
         </form>
     </div>
 
-    <div class="w-full overflow-x-auto bg-white shadow-md mt-4">
+    {{-- <div class="w-full overflow-x-auto bg-white shadow-md mt-4">
         <table
             class="w-full overflow-x-auto text-sm text-left text-gray-500 border-separate table-auto whitespace-nowrap lg:table-fixed">
             <thead>
@@ -370,7 +454,82 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> --}}
+
+    {{-- Monthly Chart Result Section --}}
+    @php
+        $chartGameSections = $chartGames->chunk(15);
+    @endphp
+
+    <section class="w-full mt-6 px-2">
+
+        @foreach ($chartGameSections as $sectionIndex => $gameSection)
+            <div class="mb-8 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+
+                <div class="bg-[#0aa485] text-white text-center font-bold py-3 text-base lg:text-xl">
+                    Chart Result
+
+                </div>
+
+                <div class="w-full overflow-x-auto">
+                    <table class="min-w-max w-full border-separate border-spacing-[3px] text-center">
+
+                        <thead>
+                            <tr>
+                                <th
+                                    class="sticky left-0 z-20 min-w-[115px] bg-[#0aa485] text-white px-3 py-3 rounded-lg text-sm font-bold">
+                                    Date
+                                </th>
+
+                                @foreach ($gameSection as $game)
+                                    <th
+                                        class="min-w-[100px] bg-[#0aa485] text-white px-3 py-3 rounded-lg text-xs lg:text-sm font-bold leading-tight whitespace-normal">
+                                        {{ $game->name }}
+                                    </th>
+                                @endforeach
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach ($dates as $date)
+                                @php
+                                    $dateKey = $date->format('Y-m-d');
+                                    $dayResults = $monthlyResults->get($dateKey, collect())->keyBy('game_slug');
+                                @endphp
+
+                                <tr>
+                                    <td
+                                        class="sticky left-0 z-10 min-w-[115px] bg-[#2d4b58] text-white px-3 py-4 rounded-lg text-sm font-semibold">
+                                        {{ $date->format('d-m-Y') }}
+                                    </td>
+
+                                    @foreach ($gameSection as $game)
+                                        @php
+                                            $result = $dayResults->get($game->slug);
+                                        @endphp
+
+                                        <td
+                                            class="min-w-[100px] bg-[#2d4b58] text-white px-3 py-4 rounded-lg text-sm font-bold">
+                                            @if (!empty($result?->result))
+                                                {{ str_pad($result->result, 2, '0', STR_PAD_LEFT) }}
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
+                                    @endforeach
+                                </tr>
+                            @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        @endforeach
+
+    </section>
+
+
 
     <section class="bg-white md:py-4 homeContent">
         <h2 style="padding:1rem 1.5rem;background:#406e83;text-align:center;font-size:1.2rem;color:#fff;">
