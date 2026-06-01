@@ -552,7 +552,7 @@
 
 
 
-    <section class="bg-white md:py-4 homeContent">
+    <section class="bg-white md:py-4 homeContent container">
 
 
         <h2 class="ql-align-center"
