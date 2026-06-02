@@ -532,13 +532,13 @@
 
 
     <section class="bg-white md:py-4 homeContent">
-        <h2 style="padding:1rem 1.5rem;background:#406e83;text-align:center;font-size:1.2rem;color:#fff;">
+        {{-- <h2 style="padding:1rem 1.5rem;background:#406e83;text-align:center;font-size:1.2rem;color:#fff;">
             Super A7 Satta – India's Most Trusted A7 Satta King Result Platform
-        </h2>
+        </h2> --}}
 
-        <div style="padding:10px;">
+        {{-- <div style="padding:10px;">
             Welcome to Super 7 Satta — your daily source for A7 Satta results, charts, and live number updates.
-        </div>
+        </div> --}}
     </section>
 
     <script>
