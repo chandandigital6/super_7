@@ -187,10 +187,10 @@
                 आपका अपना भाई
             </p>
 
-            <h2 class="rv-ad-name">S.K Bhai</h2>
+            <h2 class="rv-ad-name">S.K BHAI</h2>
 
             <span class="rv-ad-img">
-                <img src="{{ asset('Wp.png') }}" alt="S.K Bhai">
+                <img src="{{ asset('Wp.png') }}" alt="S.K BHAI">
             </span>
         </div>
     </section>
@@ -283,7 +283,7 @@
         <div class="rv-ad-box">
             <div class="rv-ad-title">सीधे सट्टा कंपनी का No 1 खाईवाल</div>
 
-            <div class="rv-ad-name">☆☆ ABHISHEK Bhai KHAIWAL ☆☆</div>
+            <div class="rv-ad-name">☆☆ ABHISHEK BHAI KHAIWAL ☆☆</div>
 
             <div>
                 🎯 पालिका बाजार..1:20pm<br>
@@ -306,14 +306,14 @@
                 हरफ रेट 100-----960
             </div>
 
-            <div class="rv-ad-name">☆☆ ABHISHEK Bhai KHAIWAL ☆☆</div>
+            <div class="rv-ad-name">☆☆ ABHISHEK BHAI KHAIWAL ☆☆</div>
 
             <div style="color:#9b59b6!important;font-weight:800!important;">
                 Game Play करने के लिए नीचे लिंक पर क्लिक करे
             </div>
 
             <span class="rv-ad-img">
-                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK Bhai">
+                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK BHAI">
             </span>
 
             <div>Click to chat</div>
