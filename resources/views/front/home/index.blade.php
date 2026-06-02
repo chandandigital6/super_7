@@ -12,279 +12,315 @@
     </section>
 
 
-    {{-- top --}}
+   <style>
+    .rv-ad-wrap{
+        width:100%;
+        margin:12px auto;
+        font-family:Arial,'Noto Sans Devanagari',sans-serif;
+    }
 
-    @php
-        $topAdvertisement = $advertisements->where('position', 'top')->first();
-    @endphp
+    .rv-ad-box{
+        background:linear-gradient(180deg,#ffd900 0%,#fff8cf 100%);
+        border:3px dashed #e60000;
+        border-radius:16px;
+        padding:12px 10px;
+        text-align:center;
+        overflow:hidden;
+        box-shadow:0 4px 12px rgba(0,0,0,.10);
+    }
 
-    @if ($topAdvertisement)
-        <div class="addb"
-            style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    .rv-ad-box,
+    .rv-ad-box *{
+        color:#111!important;
+        font-size:16px!important;
+        font-weight:700!important;
+        line-height:1.45!important;
+        word-break:break-word;
+    }
+
+    .rv-ad-box h1,
+    .rv-ad-box h2,
+    .rv-ad-box h3,
+    .rv-ad-box h4,
+    .rv-ad-box h5,
+    .rv-ad-box h6,
+    .rv-ad-box p,
+    .rv-ad-box div{
+        margin:4px 0!important;
+        font-size:16px!important;
+    }
+
+    .rv-ad-title{
+        font-size:18px!important;
+        font-weight:800!important;
+    }
+
+    .rv-ad-name{
+        font-size:19px!important;
+        font-weight:900!important;
+        color:#c9342d!important;
+    }
+
+    .rv-ad-img{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        background:#fff;
+        border-radius:999px;
+        padding:5px 12px;
+        margin-top:8px;
+        max-width:100%;
+    }
+
+    .rv-ad-img img{
+        width:auto;
+        height:auto;
+        max-height:55px;
+        max-width:200px;
+        object-fit:contain;
+    }
+
+    .rv-middle{
+        background:linear-gradient(180deg,#111827,#1f2937);
+        border:3px dashed #ffd900;
+    }
+
+    .rv-middle,
+    .rv-middle *{
+        color:#fff!important;
+    }
+
+    .rv-middle .rv-ad-img img{
+        max-height:55px;
+        max-width:200px;
+    }
+
+    @media(max-width:640px){
+        .rv-ad-wrap{
+            margin:10px auto;
+        }
+
+        .rv-ad-box{
+            border-width:3px;
+            border-radius:14px;
+            padding:10px 8px;
+        }
+
+        .rv-ad-box,
+        .rv-ad-box *{
+            font-size:14px!important;
+            line-height:1.4!important;
+            font-weight:700!important;
+        }
+
+        .rv-ad-box h1,
+        .rv-ad-box h2,
+        .rv-ad-box h3,
+        .rv-ad-box h4,
+        .rv-ad-box h5,
+        .rv-ad-box h6,
+        .rv-ad-box p,
+        .rv-ad-box div{
+            font-size:14px!important;
+        }
+
+        .rv-ad-title{
+            font-size:15px!important;
+        }
+
+        .rv-ad-name{
+            font-size:16px!important;
+        }
+
+        .rv-ad-img{
+            padding:4px 10px;
+            margin-top:6px;
+        }
+
+        .rv-ad-img img{
+            max-height:48px;
+            max-width:175px;
+        }
+    }
+</style>
 
 
+{{-- top --}}
+@php
+    $topAdvertisement = $advertisements->where('position', 'top')->first();
+@endphp
 
+@if ($topAdvertisement)
+    <section class="rv-ad-wrap">
+        <div class="rv-ad-box">
             @if (!empty($topAdvertisement->content))
-                <div class="addb-content"
-                    style="margin-top:0; font-size:20px; font-weight:600; line-height:1.4; text-align:center;">
+                <div class="addb-content">
                     {!! $topAdvertisement->content !!}
                 </div>
             @endif
 
             @if (!empty($topAdvertisement->image))
                 @if (!empty($topAdvertisement->link))
-                    <a href="{{ $topAdvertisement->link }}" target="_blank">
-                        <img src="{{ asset('storage/' . $topAdvertisement->image) }}" alt="{{ $topAdvertisement->title }}"
-                            style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
+                    <a href="{{ $topAdvertisement->link }}" target="_blank" style="text-decoration:none;">
+                        <span class="rv-ad-img">
+                            <img src="{{ asset('storage/' . $topAdvertisement->image) }}"
+                                 alt="{{ $topAdvertisement->title }}">
+                        </span>
                     </a>
                 @else
-                    <img src="{{ asset('storage/' . $topAdvertisement->image) }}" alt="{{ $topAdvertisement->title }}"
-                        style="display:block; margin:3px auto 0 auto; max-width:120px; height:auto;">
+                    <span class="rv-ad-img">
+                        <img src="{{ asset('storage/' . $topAdvertisement->image) }}"
+                             alt="{{ $topAdvertisement->title }}">
+                    </span>
                 @endif
             @endif
-
         </div>
-    @else
-        <div class="addb"
-            style="background:#e9e9e9; padding:20px; margin-top:10px; text-align:center; border:2px solid #00008b; border-radius:15px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    </section>
+@else
+    <section class="rv-ad-wrap">
+        <div class="rv-ad-box">
+            <h2 class="rv-ad-title">नमस्कार साथियों</h2>
 
-            <h2 style="margin:0; font-size:22px; font-weight:bold; text-align:center;">
-                नमस्कार साथियों
-            </h2>
-
-            <p style="margin-top:10px; font-size:20px; font-weight:600; line-height:1.6; text-align:center;">
+            <p>
                 सीधा कंपनी खाईवाल के पास गेम प्ले करे<br>
                 बिंदास 1001% पेमेंट की गारंटी के साथ<br>
                 आपका अपना भाई
             </p>
 
-            <h2 style="margin-top:25px; font-size:28px; font-weight:bold; text-align:center;">
-                S.K Bhai
-            </h2>
+            <h2 class="rv-ad-name">S.K Bhai</h2>
 
-            <img src="{{ asset('Wp.png') }}" alt="S.K Bhai"
-                style="display:block; margin:10px auto 0 auto; max-width:120px; height:auto;">
+            <span class="rv-ad-img">
+                <img src="{{ asset('Wp.png') }}" alt="S.K Bhai">
+            </span>
         </div>
-    @endif
+    </section>
+@endif
+{{-- end top --}}
 
 
-    {{-- end top --}}
+{{-- middle --}}
+@php
+    $middleAdvertisement = $advertisements->where('position', 'middle')->first();
+@endphp
 
-
-
-    {{-- middle --}}
-
-
-    @php
-        $middleAdvertisement = $advertisements->where('position', 'middle')->first();
-    @endphp
-
-    @if ($middleAdvertisement)
-
-        <div class="col-md-12 text-center" style="background-color:white;">
-            <div class="ads" style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
-
+@if ($middleAdvertisement)
+    <section class="rv-ad-wrap">
+        <div class="rv-ad-box rv-middle">
+            @if (!empty($middleAdvertisement->content))
                 <div class="addb-content">
                     {!! $middleAdvertisement->content !!}
                 </div>
+            @endif
 
-                @if ($middleAdvertisement->image)
-                    @if ($middleAdvertisement->link)
-                        <a href="{{ $middleAdvertisement->link }}" target="_blank">
+            @if ($middleAdvertisement->image)
+                @if ($middleAdvertisement->link)
+                    <a href="{{ $middleAdvertisement->link }}" target="_blank" style="text-decoration:none;">
+                        <span class="rv-ad-img">
                             <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
-                                alt="{{ $middleAdvertisement->title }}" width="160"
-                                style="display:block; margin:10px auto;">
-                        </a>
-                    @else
+                                 alt="{{ $middleAdvertisement->title }}">
+                        </span>
+                    </a>
+                @else
+                    <span class="rv-ad-img">
                         <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
-                            alt="{{ $middleAdvertisement->title }}" width="160"
-                            style="display:block; margin:10px auto;">
-                    @endif
+                             alt="{{ $middleAdvertisement->title }}">
+                    </span>
                 @endif
-
-            </div>
+            @endif
         </div>
-    @else
-        <div class="col-md-12 text-center" style="background-color:white;">
-            <div class="ads" style="padding:8px 0; margin:8px 0; background:#FF5252; color:white; text-align:center;">
+    </section>
+@else
+    <section class="rv-ad-wrap">
+        <div class="rv-ad-box rv-middle">
+            <h4>
+                व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
+            </h4>
 
-                <h4 class="text-center text-black" style="font-weight:bolder;">
-                    व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
-                </h4>
-
-                <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T">
-                    <img src="{{ asset('Join-WhatsApp.png') }}" width="160" style="display:block; margin:10px auto;">
-                </a>
-
-            </div>
+            <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T" style="text-decoration:none;">
+                <span class="rv-ad-img">
+                    <img src="{{ asset('Join-WhatsApp.png') }}" alt="Join WhatsApp">
+                </span>
+            </a>
         </div>
-
-    @endif
-
-    {{-- end middle --}}
-
-
-    {{-- bottom --}}
+    </section>
+@endif
+{{-- end middle --}}
 
 
-    @php
-        $bottomAdvertisement = $advertisements->where('position', 'bottom')->first();
-    @endphp
+{{-- bottom --}}
+@php
+    $bottomAdvertisement = $advertisements->where('position', 'bottom')->first();
+@endphp
 
-    @if ($bottomAdvertisement)
+@if ($bottomAdvertisement)
+    <section class="rv-ad-wrap">
+        <div class="rv-ad-box">
+            @if (!empty($bottomAdvertisement->content))
+                <div class="addb-content">
+                    {!! $bottomAdvertisement->content !!}
+                </div>
+            @endif
 
-        <div class="drag">
-            <div
-                style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-
-                @if (!empty($bottomAdvertisement->content))
-                    <div class="addb-content">
-                        {!! $bottomAdvertisement->content !!}
-                    </div>
-                @endif
-
-                @if (!empty($bottomAdvertisement->image))
-                    @if (!empty($bottomAdvertisement->link))
-                        <a href="{{ $bottomAdvertisement->link }}" target="_blank">
+            @if (!empty($bottomAdvertisement->image))
+                @if (!empty($bottomAdvertisement->link))
+                    <a href="{{ $bottomAdvertisement->link }}" target="_blank" style="text-decoration:none;">
+                        <span class="rv-ad-img">
                             <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
-                                alt="{{ $bottomAdvertisement->title }}"
-                                style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
-                        </a>
-                    @else
+                                 alt="{{ $bottomAdvertisement->title }}">
+                        </span>
+                    </a>
+                @else
+                    <span class="rv-ad-img">
                         <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
-                            alt="{{ $bottomAdvertisement->title }}"
-                            style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
-                    @endif
+                             alt="{{ $bottomAdvertisement->title }}">
+                    </span>
                 @endif
-
-            </div>
+            @endif
         </div>
-    @else
-        <div class="drag">
-            <div
-                style="background:#fff; padding:10px 15px; margin-top:8px; text-align:center; border:3px solid #0000cc; border-radius:12px; font-family:Arial, sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    </section>
+@else
+    <section class="rv-ad-wrap">
+        <div class="rv-ad-box">
+            <div class="rv-ad-title">सीधे सट्टा कंपनी का No 1 खाईवाल</div>
 
-                <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
-                    सीधे सट्टा कंपनी का No 1 खाईवाल
-                </div>
+            <div class="rv-ad-name">☆☆ ABHISHEK Bhai KHAIWAL ☆☆</div>
 
-                <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
-                    ☆☆ ABHISHEK Bhai KHAIWAL☆☆
-                </div>
-
-                <div style="font-size:23px; font-weight:700; color:#111; line-height:1.35; text-align:center;">
-                    🎯 पालिका बाजार..1:20pm<br>
-                    🎯 प्रयागराज........2:00pm<br>
-                    🎯 दिल्लीबाजार ...3:00pm<br>
-                    🎯 दिल्ली दरबार....3:30pm<br>
-                    🎯 श्री गणेश........4:30 Pm<br>
-                    🎯 रूप नगर..........5:10pm<br>
-                    🎯 फरीदाबाद.......5:50 pm<br>
-                    🎯 फतेहपुर..........7:10 pm<br>
-                    🎯 गाजियाबाद......8:50 pm<br>
-                    🎯 नोएडानाईट.....10:00 pm<br>
-                    🎯 गली...............11:15pm<br>
-                    🎯 दिसावर ..........3:00 am
-                </div>
-
-                <div style="font-size:22px; font-weight:700; color:#111; line-height:1.4; text-align:center;">
-                    जोड़ी रेट<br>
-                    जोड़ी रेट 10-------960<br>
-                    हरफ रेट 100-----960
-                </div>
-
-                <div style="font-size:23px; font-weight:800; color:#c9342d; line-height:1.4; text-align:center;">
-                    ☆☆ ABHISHEK Bhai KHAIWAL ☆☆
-                </div>
-
-                <div style="font-size:22px; font-weight:800; color:#9b59b6; text-align:center;">
-                    Game Play करने के लिए नीचे लिंक पर क्लिक करे
-                </div>
-
-                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK Bhai"
-                    style="display:block; margin:8px auto 0 auto; max-width:120px; height:auto;">
-
-                <div style="font-size:22px; font-weight:800; color:#111; margin-top:6px; text-align:center;">
-                    Click to chat
-                </div>
-
+            <div>
+                🎯 पालिका बाजार..1:20pm<br>
+                🎯 प्रयागराज........2:00pm<br>
+                🎯 दिल्लीबाजार ...3:00pm<br>
+                🎯 दिल्ली दरबार....3:30pm<br>
+                🎯 श्री गणेश........4:30 Pm<br>
+                🎯 रूप नगर..........5:10pm<br>
+                🎯 फरीदाबाद.......5:50 pm<br>
+                🎯 फतेहपुर..........7:10 pm<br>
+                🎯 गाजियाबाद......8:50 pm<br>
+                🎯 नोएडानाईट.....10:00 pm<br>
+                🎯 गली...............11:15pm<br>
+                🎯 दिसावर ..........3:00 am
             </div>
-        </div>
 
-    @endif
-
-    {{-- end bootom --}}
-
-
-
-
-    {{-- <section class="row">
-        <div class="flex items-center justify-around space-x-4 bg-yellow-400">
-            <p class="w-full p-3 font-bold text-white bg-purple-800">GAME LIST</p>
-
-            <div class="flex items-center justify-around bg-yellow-400 w-[75%]">
-                <p class="text-lg font-semibold">कल</p>
-                <p class="text-lg font-semibold">आज</p>
+            <div>
+                जोड़ी रेट<br>
+                जोड़ी रेट 10-------960<br>
+                हरफ रेट 100-----960
             </div>
-        </div>
 
-        <div class="w-full px-0 text-center">
-            <div class="grid grid-cols-1 bg-white lg:grid-cols-3 md:grid-cols-2">
+            <div class="rv-ad-name">☆☆ ABHISHEK Bhai KHAIWAL ☆☆</div>
 
-                @forelse($games as $game)
-                    <div class="flex items-center justify-around space-x-4 border border-gray-900">
-                        <div class="w-full p-3">
-                            <p
-                                class="pb-2 text-xl font-bold tracking-wide text-gray-900 uppercase text-start hover:underline">
-                                <a href="{{ route('game.record', $game->slug) }}">
-                                    {{ $game->name }}
-                                </a>
-                            </p>
-
-                            <div class="flex items-center justify-between">
-                                <p class="text-sm font-semibold text-red-900">
-                                    {{ \Carbon\Carbon::parse($game->result_time)->format('h:i A') }}
-                                </p>
-
-                                <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
-                                    View Chart
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center justify-around w-[75%]">
-                            <p class="text-2xl font-medium tracking-wider">
-                                @if (!empty($game->yesterdayResult->result))
-                                    {{ is_numeric($game->yesterdayResult->result) && $game->yesterdayResult->result <= 9
-                                        ? str_pad($game->yesterdayResult->result, 2, '0', STR_PAD_LEFT)
-                                        : $game->yesterdayResult->result }}
-                                @else
-                                    XX
-                                @endif
-                            </p>
-
-                            <p class="text-2xl font-medium tracking-wider">
-                                @if (!empty($game->todayResult->result) && in_array($game->todayResult->status ?? '', ['declared', 'published']))
-                                    {{ is_numeric($game->todayResult->result) && $game->todayResult->result <= 9
-                                        ? str_pad($game->todayResult->result, 2, '0', STR_PAD_LEFT)
-                                        : $game->todayResult->result }}
-                                @else
-                                    <strong class="waitimg">
-                                        <img class="lazy" alt="waiting"
-                                            src="{{ asset('tamplate/admin/upimages/d.gif') }}">
-                                    </strong>
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-                @empty
-                    <div class="p-4 text-center">No result found</div>
-                @endforelse
-
+            <div style="color:#9b59b6!important;font-weight:800!important;">
+                Game Play करने के लिए नीचे लिंक पर क्लिक करे
             </div>
-        </div>
-    </section> --}}
 
+            <span class="rv-ad-img">
+                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK Bhai">
+            </span>
+
+            <div>Click to chat</div>
+        </div>
+    </section>
+@endif
+{{-- end bottom --}}
 
 
 
@@ -408,54 +444,7 @@
         </form>
     </div>
 
-    {{-- <div class="w-full overflow-x-auto bg-white shadow-md mt-4">
-        <table
-            class="w-full overflow-x-auto text-sm text-left text-gray-500 border-separate table-auto whitespace-nowrap lg:table-fixed">
-            <thead>
-                <tr>
-                    <td class="py-3 bg-[#0aa485] text-center text-[12px] lg:text-base font-bold text-white rounded-lg">
-                        Date
-                    </td>
-
-                    @foreach ($chartGames as $game)
-                        <td class="py-3 bg-[#0aa485] text-center text-[12px] lg:text-base font-bold text-white rounded-lg">
-                            {{ $game->name }}
-                        </td>
-                    @endforeach
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach ($dates as $date)
-                    @php
-                        $dateKey = $date->format('Y-m-d');
-                        $dayResults = $monthlyResults->get($dateKey, collect())->keyBy('game_slug');
-                    @endphp
-
-                    <tr>
-                        <td class="text-white lg:px-6 px-1 lg:py-4 py-3 bg-[#2d4b58] text-sm font-semibold rounded-lg">
-                            {{ $date->format('d-m-Y') }}
-                        </td>
-
-                        @foreach ($chartGames as $game)
-                            @php
-                                $result = $dayResults->get($game->slug);
-                            @endphp
-
-                            <td class="text-white lg:px-6 px-1 lg:py-4 py-3 bg-[#2d4b58] text-sm font-semibold rounded-lg">
-                                @if (!empty($result?->result))
-                                    {{ str_pad($result->result, 2, '0', STR_PAD_LEFT) }}
-                                @else
-                                    -
-                                @endif
-                            </td>
-                        @endforeach
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div> --}}
-
+  
     {{-- Monthly Chart Result Section --}}
     @php
         $chartGameSections = $chartGames->chunk(15);
