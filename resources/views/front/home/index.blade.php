@@ -335,9 +335,9 @@
         <div class="{{ $sectionIndex > 0 ? 'mt-8' : '' }}">
 
             <div class="flex items-center justify-around space-x-4 bg-yellow-400">
-                <p class="w-full p-3 font-bold text-white bg-purple-800">
-                    GAME LIST PART {{ $sectionIndex + 1 }}
-                </p>
+                {{-- <p class="w-full p-3 font-bold text-white bg-purple-800">
+                    GAME 
+                </p> --}}
 
                 <div class="flex items-center justify-around bg-yellow-400 w-[75%]">
                     <p class="text-lg font-semibold">कल</p>
