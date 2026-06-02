@@ -190,7 +190,7 @@
             <h2 class="rv-ad-name">S.K BHAI</h2>
 
             <span class="rv-ad-img">
-                <img src="{{ asset('Wp.png') }}" alt="S.K BHAI">
+                <img src="{{ asset('Wp.png') }}" alt="S.K Bhai">
             </span>
         </div>
     </section>
