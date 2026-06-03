@@ -78,6 +78,24 @@
     </table>
 </div>
 
+@if(isset($contentBlocks) && $contentBlocks->count())
+    <div class="mt-8 space-y-6">
+        @foreach($contentBlocks as $block)
+            <div class="rounded-xl border bg-white p-5 shadow-sm">
+                @if($block->title)
+                    <h2 class="mb-3 text-xl font-bold">
+                        {{ $block->title }}
+                    </h2>
+                @endif
+
+                <div class="prose max-w-none">
+                    {!! $block->content !!}
+                </div>
+            </div>
+        @endforeach
+    </div>
+@endif
+
 <div class="text-center my-6">
     <a href="{{ route('chart') }}"
        class="inline-block px-5 py-2 bg-yellow-400 text-black font-bold rounded-md hover:bg-yellow-300">
