@@ -186,7 +186,79 @@ public function gameRecord(string $slug)
     return $this->yearRecord($slug, now('Asia/Kolkata')->year);
 }
 
+
+
 public function yearRecord(string $slug, int $year)
+{
+    try {
+        $response = Http::timeout(10)->get($this->apiBaseUrl . "/api/game-year-record/{$slug}/{$year}");
+
+        if ($response->successful()) {
+            $apiData = $response->json();
+
+            $gameData = $apiData['game'] ?? [];
+
+            $game = (object) [
+                'id'          => $gameData['id'] ?? null,
+                'name'        => $gameData['name'] ?? ucwords(str_replace('-', ' ', $slug)),
+                'slug'        => $gameData['slug'] ?? $slug,
+                'result_time' => $gameData['result_time'] ?? null,
+            ];
+
+            $results = collect($apiData['results'] ?? [])
+                ->map(function ($result) {
+                    return (object) [
+                        'result_date' => $result['result_date'] ?? null,
+                        'result'      => $result['result'] ?? null,
+                        'status'      => $result['status'] ?? 'waiting',
+                    ];
+                })
+                ->filter(fn ($result) => !empty($result->result_date))
+                ->values();
+        } else {
+            $game = (object) [
+                'id'          => null,
+                'name'        => ucwords(str_replace('-', ' ', $slug)),
+                'slug'        => $slug,
+                'result_time' => null,
+            ];
+
+            $results = collect();
+        }
+    } catch (\Throwable $e) {
+        \Log::error('Game Year Record API Error', [
+            'url'   => $this->apiBaseUrl . "/api/game-year-record/{$slug}/{$year}",
+            'error' => $e->getMessage(),
+        ]);
+
+        $game = (object) [
+            'id'          => null,
+            'name'        => ucwords(str_replace('-', ' ', $slug)),
+            'slug'        => $slug,
+            'result_time' => null,
+        ];
+
+        $results = collect();
+    }
+
+  $seo = SeoPage::where('game_slug', $slug)
+    ->where('year', $year)
+    ->first();
+
+if (!$seo) {
+    $seo = SeoPage::where('game_slug', $slug)
+        ->whereNull('year')
+        ->first();
+}
+
+if (!$seo) {
+    $seo = SeoPage::where('page_key', 'game-year-record')->first();
+}
+
+    return view('front.game.year_record', compact('game', 'results', 'year', 'seo'));
+}
+
+public function yearRecordold(string $slug, int $year)
 {
     try {
         $response = Http::timeout(10)->get($this->apiBaseUrl . "/api/game-year-record/{$slug}/{$year}");
