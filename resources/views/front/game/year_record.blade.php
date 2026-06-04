@@ -6,9 +6,9 @@
 
 <section class="bg-white">
     <div class="text-center py-4">
-        <h1 class="text-2xl font-bold uppercase text-black">
+        <h2 class="text-2xl font-bold uppercase text-black">
             {{ $game->name ?? 'Game' }} Result Chart {{ $year }}
-        </h1>
+        </h2>
 
         <p class="py-2 text-sm text-gray-800">
             @if(!empty($game->result_time))
