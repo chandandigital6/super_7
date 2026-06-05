@@ -27,9 +27,9 @@
 
                 @csrf
 
-                @if(isset($contentBlock))
+                {{-- @if(isset($contentBlock))
                     @method('PUT')
-                @endif
+                @endif --}}
 
                 <div class="grid gap-6 md:grid-cols-2">
 
