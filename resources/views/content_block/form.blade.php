@@ -60,21 +60,7 @@
 
                 </div>
 
-                {{-- <div>
-                    <label class="mb-2 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">
-                        Content
-                    </label>
-
-                    <textarea name="content"
-                              rows="8"
-                              placeholder="Enter content here..."
-                              class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm outline-none focus:border-black dark:border-neutral-700 dark:bg-neutral-800 dark:text-white">{{ old('content', $contentBlock->content ?? '') }}</textarea>
-
-                    @error('content')
-                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div> --}}
-
+          
 
                 <div>
                     <label class="mb-2 block text-sm font-semibold text-neutral-700 dark:text-neutral-300">
@@ -105,8 +91,9 @@
                         Content
                     </label>
 
-                    <textarea name="content" id="content_editor" rows="8" placeholder="Enter content here..."
-                        class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm">{{ old('content', $contentBlock->content ?? '') }}</textarea>
+                   <textarea name="content" id="content_editor" rows="10">
+{{ old('content', $contentBlock->content ?? '') }}
+</textarea>
                 </div>
 
 
@@ -142,6 +129,36 @@
 
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    ClassicEditor
+        .create(document.querySelector('#content_editor'), {
+            toolbar: [
+                'heading',
+                '|',
+                'bold',
+                'italic',
+                'underline',
+                'link',
+                '|',
+                'bulletedList',
+                'numberedList',
+                '|',
+                'blockQuote',
+                'insertTable',
+                'undo',
+                'redo'
+            ]
+        })
+        .then(editor => {
+            editor.ui.view.editable.element.style.minHeight = '250px';
+        })
+        .catch(error => console.error(error));
+});
+</script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const gameSelect = document.getElementById('game_slug');
@@ -158,9 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameSelect.addEventListener('change', setGameData);
     setGameData();
 
-    ClassicEditor
-        .create(document.querySelector('#content_editor'))
-        .catch(error => console.error(error));
+  
 });
 </script>
 </x-layouts::app>

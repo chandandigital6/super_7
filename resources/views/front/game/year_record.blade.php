@@ -96,6 +96,7 @@
     </div>
 @endif
 
+
 <div class="text-center my-6">
     <a href="{{ route('chart') }}"
        class="inline-block px-5 py-2 bg-yellow-400 text-black font-bold rounded-md hover:bg-yellow-300">
