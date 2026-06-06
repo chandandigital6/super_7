@@ -18,7 +18,7 @@
 
         @forelse($navGames ?? collect() as $game)
             <div class="text-center">
-                <p class="text-base md:text-lg font-bold text-white uppercase mb-1">
+                <p class="text-base md:text-2xl font-bold text-white uppercase mb-1">
                     {{ $game->name ?: 'NA' }}
                 </p>
 
