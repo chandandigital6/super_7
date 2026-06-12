@@ -3,13 +3,14 @@
 ])
 
 @section('content')
-    {{-- <section class="bg-white">
+
+    <section class="bg-white">
         <div class="text-center py-4">
-            <h2 class="text-2xl font-bold uppercase">
+            <h1 class="text-2xl font-bold uppercase">
                 Super A7 Satta King Result Today – Updated Live Instantly
-            </h2>
+            </h1>
         </div>
-    </section> --}}
+    </section>
 
 
    <style>

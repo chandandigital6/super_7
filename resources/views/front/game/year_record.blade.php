@@ -6,9 +6,9 @@
 
 <section class="bg-white">
     <div class="text-center py-4">
-        <h2 class="text-2xl font-bold uppercase text-black">
+        <h1 class="text-2xl font-bold uppercase text-black">
             {{ $game->name ?? 'Game' }} Result Chart {{ $year }}
-        </h2>
+        </h1>
 
         <p class="py-2 text-sm text-gray-800">
             @if(!empty($game->result_time))
@@ -22,7 +22,7 @@
 
 <section class="grid grid-cols-1 gap-2 bg-white lg:grid-cols-1">
     <div class="text-center text-black px-4 py-2 shadow-xl bg-yellow-50 border pt-4 mx-2 my-2 rounded-xl leading-6 font-semibold h-fit text-lg">
-        <h3>{{ strtoupper($game->name ?? 'Game') }} {{ $year }} Full Chart 👇🏿</h3>
+        <h2>{{ strtoupper($game->name ?? 'Game') }} {{ $year }} Full Chart 👇🏿</h2>
     </div>
 </section>
 
