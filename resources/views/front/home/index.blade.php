@@ -165,13 +165,13 @@
                     <a href="{{ $topAdvertisement->link }}" target="_blank" style="text-decoration:none;">
                         <span class="rv-ad-img">
                             <img src="{{ asset('storage/' . $topAdvertisement->image) }}"
-                                 alt="{{ $topAdvertisement->title }}">
+                                 alt="{{ $topAdvertisement->title }}" width="139" height="48" class="lazy">
                         </span>
                     </a>
                 @else
                     <span class="rv-ad-img">
                         <img src="{{ asset('storage/' . $topAdvertisement->image) }}"
-                             alt="{{ $topAdvertisement->title }}">
+                             alt="{{ $topAdvertisement->title }}" width="139" height="48" class="lazy">
                     </span>
                 @endif
             @endif
@@ -191,7 +191,7 @@
             <h2 class="rv-ad-name">S.K BHAI</h2>
 
             <span class="rv-ad-img">
-                <img src="{{ asset('Wp.png') }}" alt="S.K Bhai">
+                <img src="{{ asset('Wp.png') }}" alt="S.K Bhai" width="139" height="48" class="lazy">
             </span>
         </div>
     </section>
@@ -218,13 +218,13 @@
                     <a href="{{ $middleAdvertisement->link }}" target="_blank" style="text-decoration:none;">
                         <span class="rv-ad-img">
                             <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
-                                 alt="{{ $middleAdvertisement->title }}">
+                                 alt="{{ $middleAdvertisement->title }}" width="159" height="55" class="lazy">
                         </span>
                     </a>
                 @else
                     <span class="rv-ad-img">
                         <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
-                             alt="{{ $middleAdvertisement->title }}">
+                             alt="{{ $middleAdvertisement->title }}" width="159" height="55" class="lazy">
                     </span>
                 @endif
             @endif
@@ -239,7 +239,7 @@
 
             <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T" style="text-decoration:none;">
                 <span class="rv-ad-img">
-                    <img src="{{ asset('Join-WhatsApp.png') }}" alt="Join WhatsApp">
+                    <img src="{{ asset('Join-WhatsApp.png') }}" alt="Join WhatsApp" width="159" height="55" class="lazy">
                 </span>
             </a>
         </div>
@@ -267,13 +267,13 @@
                     <a href="{{ $bottomAdvertisement->link }}" target="_blank" style="text-decoration:none;">
                         <span class="rv-ad-img">
                             <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
-                                 alt="{{ $bottomAdvertisement->title }}">
+                                 alt="{{ $bottomAdvertisement->title }}" width="139" height="48" class="lazy">
                         </span>
                     </a>
                 @else
                     <span class="rv-ad-img">
                         <img src="{{ asset('storage/' . $bottomAdvertisement->image) }}"
-                             alt="{{ $bottomAdvertisement->title }}">
+                             alt="{{ $bottomAdvertisement->title }}" width="139" height="48" class="lazy">
                     </span>
                 @endif
             @endif
@@ -314,7 +314,7 @@
             </div>
 
             <span class="rv-ad-img">
-                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK BHAI">
+                <img src="{{ asset('whatsAppChat.png') }}" alt="ABHISHEK BHAI" width="139" height="48" class="lazy">
             </span>
 
             <div>Click to chat</div>
@@ -365,10 +365,10 @@
                                         @endif
                                     </p>
 
-                                    <a class="text-sm font-semibold text-blue-700 hover:underline"
-                                       href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}">
-                                        View Chart
-                                    </a>
+                                   <a href="{{ route('game.yearRecord', [$game->slug, now('Asia/Kolkata')->year]) }}"
+   class="inline-flex items-center justify-center rounded-md bg-yellow-400 px-3 py-1.5 text-xs font-black text-black shadow-sm transition hover:bg-yellow-300 hover:no-underline">
+    View Chart
+</a>
                                 </div>
                             </div>
 
@@ -419,7 +419,7 @@
         <form method="get" action="#">
             <div class="flex items-center justify-center mx-auto rounded">
                 <div class="flex mx-2">
-                    <select id="gameSelect"
+                    <select id="gameSelect" aria-label="Select Game"
                         class="py-2 text-sm uppercase bg-white rounded-md outline-none md:py-3 md:text-base lg:px-3">
                         @foreach ($chartGames as $game)
                             <option value="{{ $game->slug }}">
@@ -428,7 +428,7 @@
                         @endforeach
                     </select>
 
-                    <select id="yearSelect"
+                    <select id="yearSelect" aria-label="Select Year"
                         class="px-2 py-2 mx-0 ml-1 text-sm bg-white rounded-md outline-none md:py-3 md:text-base lg:mx-3">
                         <option value="{{ now('Asia/Kolkata')->year }}">{{ now('Asia/Kolkata')->year }}</option>
                         <option value="{{ now('Asia/Kolkata')->subYear()->year }}">
