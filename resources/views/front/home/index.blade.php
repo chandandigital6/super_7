@@ -233,9 +233,9 @@
     @else
         <section class="rv-ad-wrap">
             <div class="rv-ad-box rv-middle">
-                <h4>
+                <h3>
                     व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
-                </h4>
+                </h3>
 
                 <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T" style="text-decoration:none;">
                     <span class="rv-ad-img">
