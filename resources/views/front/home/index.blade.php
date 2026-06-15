@@ -440,7 +440,7 @@
                     </select>
                 </div>
 
-                <button type="button" onclick="openYearChart()" class="ShinyButton_shadow__btn__ZfTiW">
+                <button type="button" onclick="openYearChart()" class="btn btn-warning">
                     Check Chart
                 </button>
 
