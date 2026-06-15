@@ -1,7 +1,7 @@
 <div>
     <nav class="border-gray-200 bg-gradient-to-br from-blue-400 to-pink-700">
         <div class="flex flex-wrap items-center justify-center p-4 ">
-            <a href="/"><img src="{{ asset('Logo(2).png') }}" width="150px" height="150px" style="border-radius:60px" alt="Super 7 Satta King" class="lazy"/></a>
+            <a href="/"><img src="{{ asset('Logo(2).webp') }}" width="150px" height="150px" style="border-radius:60px" alt="Super 7 Satta King" class="lazy"/></a>
         </div>
     </nav>
     <nav class="bg-white ">
