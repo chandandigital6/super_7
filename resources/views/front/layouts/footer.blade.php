@@ -37,7 +37,7 @@
 <a href="https://api.whatsapp.com/send/?phone=919896916793&text&type=phone_number&app_absent=0"
    target="_blank"
    style="position:fixed;right:12px;bottom:105px;z-index:999999;">
-    <img src="{{ asset('wapp.png') }}"
+    <img src="{{ asset('wapp.webp') }}"
          alt="WhatsApp"
          style="width:82px;height:82px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));">
 </a>
