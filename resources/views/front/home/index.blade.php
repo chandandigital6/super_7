@@ -440,9 +440,15 @@
                     </select>
                 </div>
 
-                <button type="button" onclick="openYearChart()" class="btn btn-warning">
+                {{-- <button type="button" onclick="openYearChart()" class="ShinyButton_shadow__btn__ZfTiW">
                     Check Chart
-                </button>
+                </button> --}}
+
+                <button type="button"
+    onclick="openYearChart()"
+    class="px-5 py-2 md:px-6 md:py-3 font-bold text-black uppercase transition-all duration-300 bg-yellow-400 border-2 border-yellow-500 rounded-lg hover:bg-yellow-500 hover:scale-105 active:scale-95">
+    Check Chart
+</button>
 
                 
             </div>
