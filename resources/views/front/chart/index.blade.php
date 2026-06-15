@@ -133,7 +133,9 @@
             return;
         }
 
-        window.location.href = "{{ url('/record') }}/" + slug + "/" + year;
+        // window.location.href = "{{ url('/record') }}/" + slug + "/" + year;
+
+        window.location.href = "{{ url('/records') }}/" + slug + "/" + year;
     }
 </script>
 

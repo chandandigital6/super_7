@@ -241,20 +241,59 @@ class FrontController extends Controller
             $results = collect();
         }
 
+        // $seo = SeoPage::where('game_slug', $slug)
+        //     ->where('year', $year)
+        //     ->first();
+
+        // if (!$seo) {
+        //     $seo = SeoPage::where('game_slug', $slug)
+        //         ->whereNull('year')
+        //         ->first();
+        // }
+
+        // if (!$seo) {
+        //     $seo = SeoPage::where('page_key', 'game-year-record')->first();
+        // }
+
+
+
+
         $seo = SeoPage::where('game_slug', $slug)
-            ->where('year', $year)
-            ->first();
+    ->where('year', $year)
+    ->first();
 
-        if (!$seo) {
-            $seo = SeoPage::where('game_slug', $slug)
-                ->whereNull('year')
-                ->first();
-        }
+if (!$seo) {
+    $seo = SeoPage::where('game_slug', $slug)
+        ->whereNull('year')
+        ->first();
+}
 
-        if (!$seo) {
-            $seo = SeoPage::where('page_key', 'game-year-record')->first();
-        }
+if (!$seo) {
+    $seo = SeoPage::where('page_key', 'game-year-record')->first();
+}
 
+// Canonical URL fix
+$currentYear = now('Asia/Kolkata')->year;
+
+$canonicalUrl = ((int) $year === (int) $currentYear)
+    ? route('game.record', $slug)
+    : route('game.yearRecord', [$slug, $year]);
+
+if ($seo) {
+    $seo = clone $seo;
+    $seo->canonical_url = $canonicalUrl;
+} else {
+    $seo = (object) [
+        'meta_title'       => null,
+        'meta_description' => null,
+        'meta_keywords'    => null,
+        'canonical_url'    => $canonicalUrl,
+        'og_title'         => null,
+        'og_description'   => null,
+        'og_image'         => null,
+        'schema_markup'    => null,
+    ];
+}
 
         $contentBlocks = ContentBlock::where('game_slug', $slug)
     ->where('is_active', true)
