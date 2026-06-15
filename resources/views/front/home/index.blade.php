@@ -446,7 +446,13 @@
 
                 <button type="button"
     onclick="openYearChart()"
-    class="px-6 py-3 text-sm font-bold tracking-[0.3em] text-white uppercase bg-[#0069a8] rounded-md">
+    class="inline-flex items-center justify-center px-8 py-3 min-h-[48px]
+           text-sm md:text-base font-black tracking-[0.28em] text-white uppercase
+           bg-[#0069a8] border-2 border-[#004f80]
+           rounded-lg
+           hover:bg-[#007cc7]
+           active:bg-[#004f80] active:scale-[0.98]
+           transition">
     Check Chart
 </button>
             </div>
