@@ -36,7 +36,7 @@
                     @else
                         <img class="lazy w-10 h-10 object-contain"
                              src="{{ asset('tamplate/admin/upimages/d.gif') }}"
-                             alt="waiting">
+                             alt="waiting" width="40" height="40">
                     @endif
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <p class="text-xl font-bold text-white uppercase">NA</p>
                 <img class="lazy w-10 h-10 object-contain mx-auto mt-2"
                      src="{{ asset('tamplate/admin/upimages/d.gif') }}"
-                     alt="waiting">
+                     alt="waiting" width="40" height="40">
             </div>
         @endforelse
 
