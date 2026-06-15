@@ -466,10 +466,10 @@
         @foreach ($chartGameSections as $sectionIndex => $gameSection)
             <div class="mb-8 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
 
-                <div class="bg-[#0aa485] text-white text-center font-bold py-3 text-base lg:text-xl">
+                {{-- <div class="bg-[#0aa485] text-white text-center font-bold py-3 text-base lg:text-xl">
                     Chart Result
 
-                </div>
+                </div> --}}
 
                 <div class="w-full overflow-x-auto">
                     <table class="min-w-max w-full border-separate border-spacing-[3px] text-center">
