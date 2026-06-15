@@ -82,7 +82,7 @@
     </noscript>
 
     <!-- Google tag (gtag.js) -->
-    {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QEDR9PH55"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QEDR9PH55"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -92,12 +92,12 @@
 
         gtag('js', new Date());
         gtag('config', 'G-2QEDR9PH55');
-    </script> --}}
+    </script>
 
 
 
     <!-- Google Tag Preconnect / DNS Prefetch -->
-<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+{{-- <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
 <!-- Google Tag Script Preload -->
@@ -117,7 +117,7 @@
 
     gtag('js', new Date());
     gtag('config', 'G-2QEDR9PH55');
-</script>
+</script> --}}
 
     @if(!empty($seo?->schema_markup))
         {!! $seo->schema_markup !!}
