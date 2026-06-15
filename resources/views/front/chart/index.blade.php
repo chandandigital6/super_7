@@ -124,19 +124,32 @@
 </div>
 
 <script>
+    // function openYearChart() {
+    //     let slug = document.getElementById('gameSelect').value;
+    //     let year = document.getElementById('yearSelect').value;
+
+    //     if (!slug || !year) {
+    //         alert('Please select game and year');
+    //         return;
+    //     }
+
+    //     window.location.href = "{{ url('/record') }}/" + slug + "/" + year;
+    // }
+
+
+
+
     function openYearChart() {
-        let slug = document.getElementById('gameSelect').value;
-        let year = document.getElementById('yearSelect').value;
+    let slug = document.getElementById('gameSelect').value;
+    let year = document.getElementById('yearSelect').value;
 
-        if (!slug || !year) {
-            alert('Please select game and year');
-            return;
-        }
-
-        // window.location.href = "{{ url('/record') }}/" + slug + "/" + year;
-
-        window.location.href = "{{ url('/records') }}/" + slug + "/" + year;
+    if (!slug || !year) {
+        alert('Please select game and year');
+        return;
     }
+
+    window.location.href = "{{ url('/records') }}/" + slug + "/" + year;
+}
 </script>
 
 @endsection
