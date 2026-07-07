@@ -26,6 +26,7 @@ Route::get('/terms-conditions', [FrontController::class, 'termsConditions'])->na
 
 
 // Old records URL redirect
+
 // Route::get('/records/{slug}', function ($slug) {
 //     return redirect()->route('game.record', ['slug' => $slug], 301);
 // });
@@ -153,6 +154,7 @@ require __DIR__ . '/settings.php';
 
 
 // Direct game URL
-<!-- Route::get('/{slug}', [FrontController::class, 'gameRecord'])
-    ->where('slug', '^(?!chart$|contact-us$|privacy-policy$|terms-conditions$|records$).+')
-    ->name('game.record'); -->
+
+// Route::get('/{slug}', [FrontController::class, 'gameRecord'])
+//     ->where('slug', '^(?!chart$|contact-us$|privacy-policy$|terms-conditions$|records$).+')
+//     ->name('game.record'); 
