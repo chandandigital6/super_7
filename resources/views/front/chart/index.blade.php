@@ -122,9 +122,9 @@
                 return;
             }
 
-            // window.location.href = "{{ url('/records') }}/" + slug;
+            window.location.href = "{{ url('/records') }}/" + slug;
 
-            window.location.href = "{{ url('/') }}/" + encodeURIComponent(slug);
+            // window.location.href = "{{ url('/') }}/" + encodeURIComponent(slug);
         }
     </script>
 
