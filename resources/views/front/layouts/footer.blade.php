@@ -1,16 +1,29 @@
 <footer class="px-4 py-8 text-white bg-[#406e83] shadow md:px-8">
     <div class="max-w-7xl mx-auto text-center">
 
-       <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-base font-bold">
-    <li><a class="text-white hover:underline" href="{{ route('chart') }}">Chart</a></li>
-    <li class="text-white/60 select-none">||</li> 
-    <li><a class="text-white hover:underline" href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
-    <li class="text-white/60 select-none">||</li>
-    <li><a class="text-white hover:underline" href="{{ route('terms-conditions') }}">Terms &amp; Conditions</a></li>
-    <li class="text-white/60 select-none">||</li>
-    <li><a class="text-white hover:underline" target="_blank" href="https://wa.me/+917015916793">Connect</a></li>
-</ul>
+      <ul class="flex flex-wrap items-center justify-center gap-3 text-base font-bold">
+    <li>
+        <a class="text-white hover:underline" href="{{ route('chart') }}">Chart</a>
+    </li>
 
+    <li class="text-white/70">||</li>
+
+    <li>
+        <a class="text-white hover:underline" href="{{ route('privacy-policy') }}">Privacy Policy</a>
+    </li>
+
+    <li class="text-white/70">||</li>
+
+    <li>
+        <a class="text-white hover:underline" href="{{ route('terms-conditions') }}">Terms &amp; Conditions</a>
+    </li>
+
+    <li class="text-white/70">||</li>
+
+    <li>
+        <a class="text-white hover:underline" target="_blank" href="https://wa.me/+917015916793">Connect</a>
+    </li>
+</ul>
         <hr class="my-3 border-white/70">
 
         <p class="text-sm md:text-base leading-relaxed text-white font-semibold">
