@@ -941,7 +941,7 @@
                 <h3 class="ql-align-center">Delhi Bazar Satta</h3>
                 <div class="rv-text">
                     Delhi Bazar is a lively daytime game with results usually out in the early afternoon. Many people check
-                    the <a href="https://super-7-satta.com/records/delhi-bazar">Delhi Bazar Result Chart</a> after A7 Satta
+                    the <a href="https://super-7-satta.com/records/delhi-bazaar">Delhi Bazar Result Chart</a> after A7 Satta
                     because the timing fits well. We keep clean charts ready so you can track patterns easily.
                 </div>
 
@@ -963,7 +963,7 @@
                 <h3 class="ql-align-center">Ghaziabad Satta</h3>
                 <div class="rv-text">
                     Ghaziabad brings evening energy with its consistent timing around 8–9 PM. It pairs really well with your
-                    A7 Satta routine. Get fast <a href="https://super-7-satta.com/records/gaziabad">Ghaziabad Result Today
+                    A7 Satta routine. Get fast <a href="https://super-7-satta.com/records/ghaziabad">Ghaziabad Result Today
                         Chart</a> updates and complete charts without any hassle.
                 </div>
 
