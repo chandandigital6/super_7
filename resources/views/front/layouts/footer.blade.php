@@ -43,14 +43,14 @@
 </footer>
 
 {{-- Fixed Play Button --}}
-<a href="https://wa.me/919896916793"
+<a href="https://wa.me/918168973121"
    style="position:fixed;left:4px;bottom:35px;z-index:999999;width:70px;background:#D10B37;color:#fff;border:2px solid #fff;border-radius:10px;text-align:center;font-weight:700;font-size:14px;padding:18px 4px;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.35);">
     <i class="fa fa-arrow-down blink"></i><br>
     PLAY<br>Now
 </a>
 
 {{-- Fixed WhatsApp Button --}}
-<a href="https://api.whatsapp.com/send/?phone=919896916793&text&type=phone_number&app_absent=0"
+<a href="https://api.whatsapp.com/send/?phone=918168973121&text&type=phone_number&app_absent=0"
    target="_blank"
    style="position:fixed;right:12px;bottom:105px;z-index:999999;">
     <img src="{{ asset('wapp.webp') }}"
