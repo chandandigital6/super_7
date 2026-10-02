@@ -12,7 +12,7 @@
                     <li><a class="text-gray-900 hover:underline" aria-current="page"
                             href="{{ route('chart') }}">Chart</a>
                     </li>
-                    <li><a target="_blank" rel="noopener noreferrer" href="https://wa.me/+917015916793"
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://wa.me/+918168973121"
                             class="text-gray-900 hover:underline">Play Now</a></li>
                     {{-- <li> @auth
                         <a class="text-gray-900 hover:underline" aria-current="page" href="{{ route('admin.dashboard') }}">MY ACCOUNT</a>
