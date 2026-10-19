@@ -531,11 +531,8 @@
 
     <div class="rv-page">
 
-        <section class="rv-hero-title">
-            <h1>Super A7 Satta King Result Today – Updated Live Instantly</h1>
-        </section>
 
-
+        
            {{-- Middle Advertisement --}}
         @if ($middleAdvertisement)
             <section class="rv-ad-wrap" aria-label="Middle Advertisement">
@@ -583,6 +580,12 @@
                 </div>
             </section>
         @endif
+
+        <section class="rv-hero-title">
+            <h1>Super A7 Satta King Result Today – Updated Live Instantly</h1>
+        </section>
+
+
 
         {{-- Top Advertisement --}}
         @if ($topAdvertisement)
