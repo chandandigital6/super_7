@@ -535,6 +535,55 @@
             <h1>Super A7 Satta King Result Today – Updated Live Instantly</h1>
         </section>
 
+
+           {{-- Middle Advertisement --}}
+        @if ($middleAdvertisement)
+            <section class="rv-ad-wrap" aria-label="Middle Advertisement">
+                <div class="rv-ad-box rv-middle">
+                    @if (!empty($middleAdvertisement->content))
+                        <div class="addb-content">
+                            {!! $middleAdvertisement->content !!}
+                        </div>
+                    @endif
+
+                    @if (!empty($middleAdvertisement->image))
+                        @if (!empty($middleAdvertisement->link))
+                            <a href="{{ $middleAdvertisement->link }}" target="_blank" rel="noopener nofollow"
+                                style="text-decoration:none;">
+                                <span class="rv-ad-img">
+                                    <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
+                                        alt="{{ $middleAdvertisement->title ?? 'Advertisement' }}" width="159"
+                                        height="55" loading="lazy" decoding="async">
+                                </span>
+                            </a>
+                        @else
+                            <span class="rv-ad-img">
+                                <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
+                                    alt="{{ $middleAdvertisement->title ?? 'Advertisement' }}" width="159"
+                                    height="55" loading="lazy" decoding="async">
+                            </span>
+                        @endif
+                    @endif
+                </div>
+            </section>
+        @else
+            <section class="rv-ad-wrap" aria-label="Middle Advertisement">
+                <div class="rv-ad-box rv-middle">
+                    <h2>
+                        व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
+                    </h2>
+
+                    <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T" target="_blank" rel="noopener nofollow"
+                        style="text-decoration:none;">
+                        <span class="rv-ad-img">
+                            <img src="{{ asset('Join-WhatsApp.png') }}" alt="Join WhatsApp" width="159" height="55"
+                                loading="lazy" decoding="async">
+                        </span>
+                    </a>
+                </div>
+            </section>
+        @endif
+
         {{-- Top Advertisement --}}
         @if ($topAdvertisement)
             <section class="rv-ad-wrap" aria-label="Top Advertisement">
@@ -586,53 +635,7 @@
             </section>
         @endif
 
-        {{-- Middle Advertisement --}}
-        @if ($middleAdvertisement)
-            <section class="rv-ad-wrap" aria-label="Middle Advertisement">
-                <div class="rv-ad-box rv-middle">
-                    @if (!empty($middleAdvertisement->content))
-                        <div class="addb-content">
-                            {!! $middleAdvertisement->content !!}
-                        </div>
-                    @endif
-
-                    @if (!empty($middleAdvertisement->image))
-                        @if (!empty($middleAdvertisement->link))
-                            <a href="{{ $middleAdvertisement->link }}" target="_blank" rel="noopener nofollow"
-                                style="text-decoration:none;">
-                                <span class="rv-ad-img">
-                                    <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
-                                        alt="{{ $middleAdvertisement->title ?? 'Advertisement' }}" width="159"
-                                        height="55" loading="lazy" decoding="async">
-                                </span>
-                            </a>
-                        @else
-                            <span class="rv-ad-img">
-                                <img src="{{ asset('storage/' . $middleAdvertisement->image) }}"
-                                    alt="{{ $middleAdvertisement->title ?? 'Advertisement' }}" width="159"
-                                    height="55" loading="lazy" decoding="async">
-                            </span>
-                        @endif
-                    @endif
-                </div>
-            </section>
-        @else
-            <section class="rv-ad-wrap" aria-label="Middle Advertisement">
-                <div class="rv-ad-box rv-middle">
-                    <h2>
-                        व्हाट्सएप पर सुपर फास्ट रिजल्ट देखने के लिए नीचे दिए गए लिंक पर जाएं और चैनल को फॉलो करें।
-                    </h2>
-
-                    <a href="https://whatsapp.com/channel/0029Vb67katLikgE57Pwhj0T" target="_blank" rel="noopener nofollow"
-                        style="text-decoration:none;">
-                        <span class="rv-ad-img">
-                            <img src="{{ asset('Join-WhatsApp.png') }}" alt="Join WhatsApp" width="159" height="55"
-                                loading="lazy" decoding="async">
-                        </span>
-                    </a>
-                </div>
-            </section>
-        @endif
+     
 
         {{-- Bottom Advertisement --}}
         @if ($bottomAdvertisement)
